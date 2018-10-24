@@ -1,0 +1,2 @@
+\contentsline {section}{\numberline {1}OS Image}{1}
+\contentsline {section}{\numberline {2}Wifi on Armbian Bionic desktop mainline kernel 4.14.y}{1}

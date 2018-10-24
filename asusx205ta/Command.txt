@@ -1,0 +1,15 @@
+Downloading the Driver
+
+Command:- wget https://android.googlesource.com/platform/hardware/broadcom/wlan/+archive/master/bcmdhd/firmware/bcm43341.tar.gz
+
+Then we simply need to copy in in the right place (the directory /lib/firmware/brcm/ might not exist so it may need to be created), with the right name 
+
+command: tar xf bcm43341.tar.gz
+command: mkdir -p /lib/firmware/brcm/
+command: cp fw_bcm43341.bin /lib/firmware/brcm/brcmfmac43340-sdio.bin
+
+command: mount -t efivarfs efivarfs /sys/firmware/efi/efivars
+
+Then the nvram-File needs to be copied and renamed:
+
+command: cp /sys/firmware/efi/efivars/nvram-74b00bd9-805a-4d61-b51f-43268123d113 /lib/firmware/brcm/brcmfmac43340-sdio.txt

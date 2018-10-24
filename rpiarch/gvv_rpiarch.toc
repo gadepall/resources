@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}Resources}{1}
+\contentsline {section}{\numberline {2}Installing Archlinuxarm Rootfs}{1}
+\contentsline {subsection}{\numberline {2.1}Installing bsdtar}{1}
+\contentsline {subsection}{\numberline {2.2}Preparing the sdcard}{1}
+\contentsline {subsection}{\numberline {2.3}Download and install the rootfs on the sdcard}{2}
+\contentsline {section}{\numberline {3}Basic Setup}{2}
+\contentsline {subsection}{\numberline {3.1}Install Sudo}{2}
+\contentsline {subsection}{\numberline {3.2}Install yaourt}{2}
+\contentsline {subsection}{\numberline {3.3}Install LXDE Desktop}{2}
+\contentsline {subsection}{\numberline {3.4}Install Wifi}{2}
+\contentsline {subsection}{\numberline {3.5}Install Bluetooth}{2}
+\contentsline {subsection}{\numberline {3.6}Install Chromium}{3}
+\contentsline {subsection}{\numberline {3.7}MTP and EXFAT}{3}
+\contentsline {section}{\numberline {4}Tweaks}{3}
+\contentsline {subsection}{\numberline {4.1}Slim Desktop Manager}{3}
+\contentsline {subsection}{\numberline {4.2}Blueman}{3}
+\contentsline {section}{References}{3}

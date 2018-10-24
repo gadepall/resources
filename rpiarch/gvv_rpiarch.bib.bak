@@ -1,0 +1,8 @@
+% Encoding: UTF-8
+
+@Electronic{alarm_off,
+  author = {Archlinuxarm},
+  url    = {https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

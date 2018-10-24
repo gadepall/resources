@@ -1,0 +1,40 @@
+#Set timezone
+sudo dpkg-reconfigure tzdata
+#install wpagui and copy to Desktop
+sudo apt install wpagui
+sudo cp /usr/share/applications/wpa_gui.desktop ~/Desktop/
+#Remove network manager
+sudo apt remove network-manager
+#Replace interfaces
+cp ifaces.txt /etc/network/interfaces
+
+#First open /etc/wpa_supplicant/wpa_supplicant.conf and #type the following in the beginning
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+#Add user to group netdev
+sudo usermod -a -G netdev $USER
+#Start wpa_supplicant if required
+sudo systemctl start wpa_supplicant.service
+#The following command should then be typed
+sudo wpa_supplicant  -i wlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf -D wext 
+#Start wpa_cli
+sudo wpa_cli
+scan
+#Configure wpa-gui
+Open wpa-gui
+Select Network and enter the details of the network that you wish to connect to.
+
+
+sudo systemctl status wpa_supplicant.service
+
+sudo wpa_supplicant -B -i wlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf -D wext 
+sudo wpa_supplicant -B -i wlan0 -c/etc/wpa_supplicant/wpa_supplicant.conf -Dwext nl80211
+
+network={
+        ssid="gvv"
+        psk="nara1234"
+        proto=RSN
+        key_mgmt=WPA-PSK
+        pairwise=CCMP
+        auth_alg=OPEN
+        priority=1

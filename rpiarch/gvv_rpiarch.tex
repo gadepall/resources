@@ -1,0 +1,512 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+%
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{xcolor}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\doublespacing
+\singlespacing
+
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+\usepackage[cmex10]{amsmath}
+\usepackage{mathtools}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{hyperref}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+%\usepackage{enumitem}
+\usepackage{enumerate}
+\usepackage{mathtools}
+%\usepackage{iithtlc}
+%\usepackage[framemethod=tikz]{mdframed}
+\usepackage{listings}
+\usepackage{listings}
+    \usepackage[latin1]{inputenc}                                 %%
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+
+
+
+%\usepackage{stmaryrd}
+
+
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+%\lstset{
+%language=C,
+%frame=single, 
+%breaklines=true
+%}
+
+%\lstset{
+	%%basicstyle=\small\ttfamily\bfseries,
+	%%numberstyle=\small\ttfamily,
+	%language=Octave,
+	%backgroundcolor=\color{white},
+	%%frame=single,
+	%%keywordstyle=\bfseries,
+	%%breaklines=true,
+	%%showstringspaces=false,
+	%%xleftmargin=-10mm,
+	%%aboveskip=-1mm,
+	%%belowskip=0mm
+%}
+
+%\surroundwithmdframed[width=\columnwidth]{lstlisting}
+\def\inputGnumericTable{}                                 %%
+\lstset{
+language=C,
+frame=single, 
+breaklines=true
+}
+ 
+
+\begin{document}
+%
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+
+\providecommand{\nCr}[2]{\,^{#1}C_{#2}} % nCr
+\providecommand{\nPr}[2]{\,^{#1}P_{#2}} % nPr
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+%\numberwithin{equation}{subsection}
+\numberwithin{equation}{problem}
+%\numberwithin{problem}{subsection}
+%\numberwithin{definition}{subsection}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+
+\let\StandardTheFigure\thefigure
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+\renewcommand{\thefigure}{\theproblem}
+
+
+%\numberwithin{figure}{subsection}
+
+%\numberwithin{equation}{subsection}
+%\numberwithin{equation}{section}
+%%\numberwithin{equation}{problem}
+%%\numberwithin{problem}{subsection}
+\numberwithin{problem}{section}
+%%\numberwithin{definition}{subsection}
+%\makeatletter
+%\@addtoreset{figure}{problem}
+%\makeatother
+\makeatletter
+\@addtoreset{table}{problem}
+\makeatother
+
+\let\StandardTheFigure\thefigure
+\let\StandardTheTable\thetable
+%%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+%\renewcommand{\thefigure}{\theproblem}
+\renewcommand{\thetable}{\theproblem}
+%%\numberwithin{figure}{section}
+
+%%\numberwithin{figure}{subsection}
+
+
+
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+
+\vspace{3cm}
+
+\title{ 
+%	\logo{
+Archlinuxarm on Raspberry Pi 
+%	}
+}
+
+
+
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+%\title{Debian USB-Stick.}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+\author{G V V Sharma$^{*}$% <-this % stops a space
+\thanks{*The author is with the Department
+of Electrical Engineering, Indian Institute of Technology, Hyderabad
+502285 India e-mail:  gadepall@iith.ac.in. All content in this manual is released under GNU GPL.  Free and open source.}% <-this % stops a space
+%\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
+%\thanks{Manuscript received April 19, 2005; revised January 11, 2007.}}
+}
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+%\markboth{Journal of \LaTeX\ Class Files,~Vol.~6, No.~1, January~2007}%
+%{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+
+
+% make the title area
+\maketitle
+
+\tableofcontents
+
+\bigskip
+
+\begin{abstract}
+%\boldmath
+This manual lists the steps required to run Archlinuxarm on the Raspberry Pi 3.
+\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the journal you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals frown on math
+% in the abstract anyway.
+
+% Note that keywords are not normally used for peerreview papers.
+%\begin{IEEEkeywords}
+%Cooperative diversity, decode and forward, piecewise linear
+%\end{IEEEkeywords}
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+%\newpage
+%\section{Component Pin Diagrams}
+%%
+%\input{chapter1}
+%
+
+%\newpage
+\section{Resources}
+\begin{enumerate}[1.]
+\item Linux laptop
+\item Micro-SD card with unallocated space(free space), min 8 GB size.
+%  \item A Laptop with Secure Boot disabled.
+\end{enumerate}
+
+
+\section{Installing Archlinuxarm Rootfs}
+\subsection{Installing bsdtar}
+An updated version of \textbf{bsdtar } may be required for installing the official Archlinux image from \cite{alarm_off}.  The steps for installing \textbf{bsdtar} are
+given below \cite{alarm_bsdtar}
+\begin{lstlisting}
+wget https://www.libarchive.org/downloads/libarchive-3.3.1.tar.gz
+tar xzf libarchive-3.3.1.tar.gz
+cd libarchive-3.3.1
+./configure
+make
+sudo make install
+\end{lstlisting}
+
+\subsection{Preparing the sdcard}
+All the following instructions are available in \cite{alarm_off}.Replace sdX in the following instructions with the device name for the SD card as it appears on your computer.
+\begin{enumerate}[1.]
+\item Start fdisk to partition the SD card:
+\begin{lstlisting}
+fdisk /dev/sdX
+\end{lstlisting}
+\item At the fdisk prompt, delete old partitions and create a new one:
+\begin{enumerate}
+\item Type \textbf{o}. This will clear out any partitions on the drive.
+\item  Type \textbf{p} to list partitions. There should be no partitions left.
+\item Type \textbf{n}, then \textbf{p} for primary, \textbf{1} for the first partition on the drive, press ENTER to accept the default first sector, then type \textbf{+100M} for the last sector.
+\item Type \textbf{t}, then \textbf{c} to set the first partition to type W95 FAT32 (LBA).
+\item Type \textbf{n}, then \textbf{p} for primary, \textbf{2} for the second partition on the drive, and then press ENTER twice to accept the default first and last sector.
+\item Write the partition table and exit by typing \textbf{w}.
+
+\end{enumerate}
+\item Create and mount the FAT filesystem:
+\begin{lstlisting}
+mkfs.vfat /dev/sdX1
+mkdir boot
+mount /dev/sdX1 boot
+\end{lstlisting}
+\item Create and mount the ext4 filesystem:
+\begin{lstlisting}
+mkfs.ext4 /dev/sdX2
+mkdir root
+mount /dev/sdX2 root
+\end{lstlisting}
+\end{enumerate}
+\subsection{Download and install the rootfs on the sdcard}
+\begin{enumerate}[1.]
+\item Download and extract the root filesystem (as root, not via sudo):
+\begin{lstlisting}
+wget http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
+bsdtar -xpf ArchLinuxARM-rpi-2-latest.tar.gz -C root
+sync
+\end{lstlisting}
+\item Move boot files to the first partition:
+\begin{lstlisting}
+mv root/boot/* boot
+\end{lstlisting}
+\item Move boot files to the first partition:
+\begin{lstlisting}
+umount boot root
+\end{lstlisting}
+\end{enumerate}
+\section{Basic Setup}
+\begin{enumerate}[1.]
+\item Insert the SD card into the Raspberry Pi, connect ethernet, keyboard, mouse and apply 5V power. You may also SSH to the IP address given to the board by your router.
+\item Login as the default user {\em alarm} with the password {\em alarm}.
+\item Access root user 
+\begin{lstlisting}
+su
+\end{lstlisting}
+\item Enter password as {\em root}.
+\item Upgrade
+\begin{lstlisting}
+pacman -Syu
+\end{lstlisting}
+\end{enumerate}
+\subsection{Install Sudo}
+\begin{enumerate}[1.]
+
+
+\item As root, 
+\begin{lstlisting}
+pacman -S sudo
+nano /etc/sudoers
+\end{lstlisting}
+\item Uncomment the line (remove the \# )
+\begin{lstlisting}
+%wheel      ALL=(ALL) ALL
+\end{lstlisting}
+\item Ctrx+X to save and exit. Now you can use \textbf{sudo} for installing applications 
+\end{enumerate}
+\subsection{Install yaourt}
+Yaourt is useful for installing packages from AUR
+\begin{lstlisting}
+sudo pacman -S --needed base-devel git wget yajl 
+git clone https://aur.archlinux.org/package-query.git
+cd package-query/
+makepkg -si
+cd ..
+git clone https://aur.archlinux.org/yaourt.git
+cd yaourt/
+makepkg -si
+cd ..
+sudo rm -dR yaourt/ package-query/
+
+\end{lstlisting}
+\subsection{Install LXDE Desktop}
+\begin{lstlisting}
+sudo pacman -S xf86-video-fbdev lxde xorg-xinit dbus	
+sudo pacman -S slim
+sudo systemctl start slim.service
+sudo systemctl enable slim.service
+nano .xinitrc
+exec startlxde
+\end{lstlisting}
+Save and exit \textbf{.xinitrc}
+\subsection{Install Wifi}
+\begin{lstlisting}
+sudo pacman -S  network-manager-applet
+sudo systemctl start NetworkManager.service
+sudo systemctl enable NetworkManager.service
+\end{lstlisting}
+%Save and exit \textbf{.xinitrc}
+\subsection{Install Bluetooth}
+You will be using {\em yaourt} for building some bluetooth packages, say yes whenever prompted.
+\begin{lstlisting}
+sudo pacman -S blueman
+yaourt -S pi-bluetooth
+sudo systemctl start brcm43438.service
+sudo systemctl enable brcm43438.service
+sudo systemctl start bluetooth.service
+sudo systemctl enable bluetooth.service
+sudo reboot
+\end{lstlisting}
+\subsection{Install Chromium}
+\begin{lstlisting}
+sudo pacman -S ttf-dejavu chromium
+\end{lstlisting}
+
+\subsection{MTP and EXFAT}
+The following command installs libraries required for mounting android phones and exfat-usb drives.
+\begin{lstlisting}
+sudo pacman -S gvfs-mtp exfat-utils
+\end{lstlisting}
+\section{Tweaks}
+The following tweaks may be useful if you are using a bluetooth keyboard.
+\subsection{Slim Desktop Manager}
+For autologin, open the following file and uncomment the lines.
+\begin{lstlisting}
+sudo nano /etc/slim.conf
+default_user        alarm
+auto_login          yes
+\end{lstlisting}
+\subsection{Blueman}
+Blueman may ask for root password at login.  For this, download
+\begin{lstlisting}
+https://github.com/gadepall/resources/blob/master/rpiarch/51-blueman.rules
+\end{lstlisting}
+and then
+\begin{lstlisting}
+sudo cp 51-blueman.rules /etc/polkit-1/rules.d/
+\end{lstlisting}
+
+%\input{./chapters/chapter1}
+%
+%\section{Display Control through Arduino Software}
+%\input{./chapters/chapter2}
+%%
+%\section{Decade Counter through Arduino}
+%\input{./chapters/chapter3}
+%%%
+%\section{Karnaugh Maps}
+%\input{./chapters/chapter4}
+%%
+%\section{Sequential Logic}
+%\input{./chapters/chapter5}
+%
+%\section{C Programming}
+%\input{./chapters/chapter6}
+
+%\input{arduinoport}
+
+
+
+%\input{chapter2} 
+%%
+%\newpage
+%\section{$M$-ary Modulation}
+%\input{chapter3} 
+%
+%\newpage
+%\section{BER in Rayleigh Flat Slowly Fading Channels}
+%\input{chapter4} 
+\bibliography{IEEEabrv,gvv_rpiarch}
+\end{document}
+

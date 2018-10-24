@@ -1,0 +1,50 @@
+#Flash using openocd and stlink
+https://github.com/rogerclarkmelbourne/Arduino_STM32/wiki/Programming-an-STM32F103XXX-with-a-generic-%22ST-Link-V2%22-programmer-from-Linux
+#DFU Util
+http://dfu-util.sourceforge.net/
+https://docs.particle.io/faq/particle-tools/installing-dfu-util/core/#installation-linux
+https://docs.particle.io/faq/particle-tools/installing-dfu-util/core/#using-dfu-util
+http://wiki.openmoko.org/wiki/Manuals/dfu-util
+
+#If stdin.h error occurs
+sudo apt-get install libnewlib-arm-none-eabi
+# runing openocd for stm32
+#Make sure that the pin beside the reset button is non-aligned
+sudo openocd -f /usr/local/share/openocd/scripts/interface/stlink.cfg -f /usr/local/share/openocd/scripts/target/stm32f1x.cfg
+#Run
+telnet localhost 4444
+reset halt
+#In a new window,
+flash write_image erase main.bin 0x08000000
+reset run
+#Align the pin beside the reset button and press the reset button.
+#sample code for seven segment display
+http://www.eeherald.com/section/design-guide/esmod4bsample.html
+#STM32F103C8T6 official
+https://www.st.com/en/microcontrollers/stm32f103c8.html
+#STM32 programming
+https://gist.github.com/Vitorbnc/e35f1ff1485d660edf365241dacfa387
+#STM32 Timers
+http://embedded-lab.com/blog/stm32-timers/
+#stm32f103c8 reference page
+https://www.st.com/en/microcontrollers/stm32f103c8.html
+https://electronics.stackexchange.com/questions/305423/how-do-i-set-systick-to-1-ms
+#Timer
+http://en.radzio.dxp.pl/stm32vldiscovery/lesson3,blinking,with,timer.html
+https://electronics.stackexchange.com/questions/132000/stm32-series-microcontroller-calculations-of-timer-variables
+https://www.embeddedrelated.com/showarticle/478.php
+https://www.youtube.com/watch?v=mqA4ELmzCmM
+http://embedded-lab.com/blog/stm32-internals/
+
+#Timer Master-Slave
+https://stackoverflow.com/questions/46745198/stm32f7-timer-triggers-timer
+
+#LCD 16 x 2
+https://www.instructables.com/id/STM32F103-Interfacing-LCD-16x2-using-Mbedh/
+https://embeddedlifehelp.blogspot.com/2012/03/16x2-lcd-programming-for-beginners-made.html
+#ADC
+https://www.fmf.uni-lj.si/~ponikvar/STM32F407%20project/ADC1.pdf
+http://en.radzio.dxp.pl/stm32vldiscovery/lesson7,analog,to,digital,converter,adc.html
+https://electronics.stackexchange.com/questions/347170/stm32f103-temperature-sensor-calibration-addresses
+#
+--skip_steps=mingw32
