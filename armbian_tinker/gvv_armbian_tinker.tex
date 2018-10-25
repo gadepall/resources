@@ -93,9 +93,10 @@
 %\surroundwithmdframed[width=\columnwidth]{lstlisting}
 \def\inputGnumericTable{}                                 %%
 \lstset{
-language=C,
+%language=C,
 frame=single, 
-breaklines=true
+breaklines=true,
+columns=fullflexible
 }
  
 
@@ -332,6 +333,10 @@ and \textbf{password} for yourself. You should boot into the desktop.
 \begin{lstlisting}
 sudo dpkg-reconfigure tzdata
 \end{lstlisting}
+\item Get indic fonsts
+\begin{lstlisting}
+sudo apt install fonts-indic
+\end{lstlisting}
 \end{enumerate}
 
 \section{Wifi on Armbian Bionic desktop mainline kernel 4.14.y}
@@ -347,7 +352,7 @@ sudo apt remove network-manager
 \end{lstlisting}
 \item Replace interfaces
 \begin{lstlisting}
-wget ifaces.txt 
+wget https://raw.githubusercontent.com/gadepall/resources/master/armbian_tinker/codes/ifaces.txt
 cp ifaces /etc/network/interfaces
 \end{lstlisting}
 \item Open wpa\_supplicant configuation file
