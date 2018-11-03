@@ -1,0 +1,43 @@
+#Build packages
+pkg update
+pkg upgrade && pkg install autoconf automake bison bzip2 clang cmake \
+coreutils diffutils flex gawk git grep gzip libtool make patch perl  \
+sed silversearcher-ag tar wget pkg-config 
+
+
+#Storage access
+termux-setup-storage
+#X11
+pkg install x11-repo
+#Add pointless repo
+wget https://its-pointless.github.io/setup-pointless-repo.sh
+bash setup-pointless-repo.sh
+#Install gcc-7
+pkg install gcc-7
+#python
+pkg install python python-dev libpng-dev freetype-dev numpy scipy
+pip install matplotlib mpmath
+#Latex
+pkg install texlive ghostscript texinfo
+tlmgr update --list
+tlmgr install scheme-full
+cp tex2pdf.sh
+#VNC
+pkg install tigervnc fluxbox openbox pypanel xorg-xsetroot
+nano ~/.vnc/xstartup
+#and copy the following
+# Generate menu.
+fluxbox-generate_menu
+# Start fluxbox.
+fluxbox &
+# Start Openbox.
+openbox-session &
+#save and exit
+nano ${PREFIX}/etc/xdg/openbox/autostart
+# Make background gray.
+xsetroot -solid gray
+# Launch PyPanel.
+pypanel &
+#save and exit
+nano ${PREFIX}/etc/bash.bashrc
+export DISPLAY=":1"
