@@ -1,9 +1,8 @@
-#Build packages
+#Mandatory packages
 pkg update
 pkg upgrade && pkg install autoconf automake bison bzip2 clang cmake \
 coreutils diffutils flex gawk git grep gzip libtool make patch perl  \
-sed silversearcher-ag tar wget pkg-config 
-
+sed silversearcher-ag tar wget pkg-config openssh
 
 #Storage access
 termux-setup-storage
@@ -21,7 +20,9 @@ pip install matplotlib mpmath
 pkg install texlive ghostscript texinfo
 tlmgr update --list
 tlmgr install scheme-full
-cp tex2pdf.sh
+cp tex2pdf.sh $PREFIX/bin/
+#Execute filename.tex as
+tex2pdf filename
 #VNC
 pkg install tigervnc fluxbox openbox pypanel xorg-xsetroot
 nano ~/.vnc/xstartup
