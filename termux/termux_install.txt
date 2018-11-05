@@ -2,7 +2,7 @@
 pkg update
 pkg upgrade && pkg install autoconf automake bison bzip2 clang cmake \
 coreutils diffutils flex gawk git grep gzip libtool make patch perl  \
-sed silversearcher-ag tar wget pkg-config openssh
+sed silversearcher-ag tar wget pkg-config openssh subversion
 
 #Storage access
 termux-setup-storage
@@ -42,3 +42,5 @@ pypanel &
 #save and exit
 nano ${PREFIX}/etc/bash.bashrc
 export DISPLAY=":1"
+#installing avra
+https://www.avrfreaks.net/forum/avra-installation
