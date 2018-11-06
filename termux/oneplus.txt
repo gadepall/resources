@@ -2,3 +2,6 @@
 https://forums.oneplus.com/threads/oneplus-5t-unlock-bootloader-flash-twrp-root-nandroid-efs.685403/
 
 #Official site for oneplus twrp
+
+#Official site for Magisk Root
+https://github.com/topjohnwu/Magisk/releases
