@@ -1,0 +1,4 @@
+#Follow instructions for rooting phone
+https://forums.oneplus.com/threads/oneplus-5t-unlock-bootloader-flash-twrp-root-nandroid-efs.685403/
+
+#Official site for oneplus twrp
