@@ -1,7 +1,9 @@
-#Follow instructions for rooting phone
+#Follow instructions for rooting phone, use only official download pages
 https://forums.oneplus.com/threads/oneplus-5t-unlock-bootloader-flash-twrp-root-nandroid-efs.685403/
 
+
 #Official site for oneplus twrp
+https://twrp.me/oneplus/oneplus5t.html
 
 #Official site for Magisk Root
 https://github.com/topjohnwu/Magisk/releases
