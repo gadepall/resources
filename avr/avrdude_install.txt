@@ -1,0 +1,21 @@
+#Install realdine
+wget http://ftp.vim.org/ftp/gnu/readline/readline-8.0-beta.tar.gz
+#Install libusb-1
+wget https://github.com/libusb/libusb/releases/download/v1.0.21/libusb-1.0.21.tar.bz2
+tar -xf libusb-1.0.21.tar.bz2
+cd libusb-1.0.21
+termux-fix-shebang configure
+./configure --prefix=$PREFIX --disable-udev
+make
+make install  
+#Install avrdude
+tar -zxvf avrdude-6.x.tar.gz
+cd avrdude-6.0
+wget -O config.guess 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD'
+wget -O config.sub 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD'
+chmod +x configure
+./configure
+make
+#Getting error lubusb.h file not found
+make install 
+#default serial port /dev/ttyS0
