@@ -48,4 +48,4 @@ http://en.radzio.dxp.pl/stm32vldiscovery/lesson7,analog,to,digital,converter,adc
 https://electronics.stackexchange.com/questions/347170/stm32f103-temperature-sensor-calibration-addresses
 #stm32 toolchain build from source
 ./build-prerequisites.sh --skip_steps=mingw32
-./build-toolchain.sh --skip_steps=mingw32 --skip_steps=manual
+./build-toolchain.sh --skip_steps=mingw32,manual

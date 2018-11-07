@@ -1,0 +1,21 @@
+#Installing avra
+https://sourceforge.net/projects/avra/files/1.3.0/avra-1.3.0.tar.bz2/download
+or
+wget https://excellmedia.dl.sourceforge.net/project/avra/1.3.0/avra-1.3.0.tar.bz2
+cp avra-1.3.0.tar.bz2 ~/
+tar xvf avra-1.3.0.tar.bz2
+cd avra-1.3.0
+cp README AUTHORS ./src
+cd src
+#Create empty files with names NEWS, ChangeLog
+#Create avra binary
+chmod +x bootstrap
+chmod +x configure
+./bootstrap
+./configure
+make
+cp avra $PREFIX/bin
+#Now any .asm file can be executed using 
+avra filename.asm
+
+
