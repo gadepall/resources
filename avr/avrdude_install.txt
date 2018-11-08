@@ -19,3 +19,5 @@ make
 #Getting error lubusb.h file not found
 make install 
 #default serial port /dev/ttyS0
+
+https://forum.arduino.cc/index.php?to
