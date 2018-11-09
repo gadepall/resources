@@ -16,6 +16,15 @@ wget -O config.sub 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plai
 chmod +x configure
 ./configure
 make
-#Getting error lubusb.h file not found
 make install 
-#default serial port /dev/ttyS0
+ssh -n -L 8086:localhost:8086 root@10.0.0.10 '/usr/sbin/ser2net -d -C "8086:raw:600:/dev/ttyACM0:115200 NONE 1STOPBIT 8DATABITS -XONXOFF LOCAL -RTSCTS HANGUP_WHEN_DONE "' &
+
+avrdude -p atmega328p -c arduino -P net:localhost:8086 -U flash:w:hello.hex
+#avrdude -C /path/to/avrdude.conf -p atmega328p -c arduino -P net:localhost:8086 -U flash:w:/path/to/file.hex:i
+
+
+
+#Unable to see /dev/ttyS0
+https://github.com/marco-pratesi/android/blob/master/HOWTOs/Android-USB-Serial-Connection-HOWTO.txt
+android.serverbox.ch/?p=285
+https://forum.arduino.cc/index.php?topic=326850.0
