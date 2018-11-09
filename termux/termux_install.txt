@@ -1,25 +1,24 @@
-#Mandatory packages
 pkg update
-pkg upgrade && pkg install autoconf automake bison bzip2 clang cmake \
-coreutils diffutils flex gawk git grep gzip libtool make patch perl  \
-sed silversearcher-ag tar wget pkg-config openssh subversion
-
-#Storage access
-termux-setup-storage
-#X11
-pkg install x11-repo
 #Add pointless repo
 wget https://its-pointless.github.io/setup-pointless-repo.sh
 bash setup-pointless-repo.sh
-#Install gcc-7
-pkg install gcc-7
+#Mandatory packages
+pkg upgrade && pkg install autoconf automake bison bzip2 clang cmake \
+coreutils diffutils flex gawk git grep gzip libtool make patch perl  \
+sed silversearcher-ag tar wget pkg-config openssh subversion \
+imagemagick \
+gcc-7 python python-dev libpng-dev freetype-dev numpy scipy \
+x11-repo \
+pkg install texlive ghostscript texinfo
+
+#Access internal storage
+termux-setup-storage
 #python
-pkg install python python-dev libpng-dev freetype-dev numpy scipy
 pip install matplotlib mpmath
 #Latex
-pkg install texlive ghostscript texinfo
 tlmgr update --list
 tlmgr install scheme-full
+wget https://raw.githubusercontent.com/gadepall/resources/master/termux/tex2pdf.sh
 cp tex2pdf.sh $PREFIX/bin/
 #Execute filename.tex as
 tex2pdf filename
@@ -42,5 +41,5 @@ pypanel &
 #save and exit
 nano ${PREFIX}/etc/bash.bashrc
 export DISPLAY=":1"
-#installing avra
-https://www.avrfreaks.net/forum/avra-installation
+#Batch convert files
+mogrify -format eps *.jpg
