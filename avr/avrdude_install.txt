@@ -1,0 +1,30 @@
+#Install realdine
+wget http://ftp.vim.org/ftp/gnu/readline/readline-8.0-beta.tar.gz
+#Install libusb-1
+wget https://github.com/libusb/libusb/releases/download/v1.0.21/libusb-1.0.21.tar.bz2
+tar -xf libusb-1.0.21.tar.bz2
+cd libusb-1.0.21
+termux-fix-shebang configure
+./configure --prefix=$PREFIX --disable-udev
+make
+make install  
+#Install avrdude
+tar -zxvf avrdude-6.x.tar.gz
+cd avrdude-6.0
+wget -O config.guess 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD'
+wget -O config.sub 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD'
+chmod +x configure
+./configure
+make
+make install 
+ssh -n -L 8086:localhost:8086 root@10.0.0.10 '/usr/sbin/ser2net -d -C "8086:raw:600:/dev/ttyACM0:115200 NONE 1STOPBIT 8DATABITS -XONXOFF LOCAL -RTSCTS HANGUP_WHEN_DONE "' &
+
+avrdude -p atmega328p -c arduino -P net:localhost:8086 -U flash:w:hello.hex
+#avrdude -C /path/to/avrdude.conf -p atmega328p -c arduino -P net:localhost:8086 -U flash:w:/path/to/file.hex:i
+
+
+
+#Unable to see /dev/ttyS0
+https://github.com/marco-pratesi/android/blob/master/HOWTOs/Android-USB-Serial-Connection-HOWTO.txt
+android.serverbox.ch/?p=285
+https://forum.arduino.cc/index.php?topic=326850.0
