@@ -43,3 +43,5 @@ nano ${PREFIX}/etc/bash.bashrc
 export DISPLAY=":1"
 #Batch convert files
 mogrify -format eps *.jpg
+#Mount locations for external storage
+https://android.stackexchange.com/questions/5232/how-can-i-view-the-android-internal-partition-table

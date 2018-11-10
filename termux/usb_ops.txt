@@ -1,0 +1,12 @@
+#Plug usb drive and enable  USB OTG in Android settings.  Do not open any file explorer
+#As root watch the output of
+tsu
+dmesg | tail
+cat /proc/info
+#This should give you the device location.  In my case, I could see sdg, sdg1 and sdg2.  You can 
+#verify by disabling USB OTG and running
+#the above commands again
+#The actual device was located at
+/dev/block/sdg
+#To burn an image (e.g. raspberry pi)
+dd if=filename.img of=/dev/block/sdg bs=4096 status=progress
