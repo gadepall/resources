@@ -1,0 +1,5 @@
+#In usb tethering mode, finding ip address of rpi
+ip neighbor
+
+#Finding devices connected in network
+nmap -sn 10.0.0.1/24

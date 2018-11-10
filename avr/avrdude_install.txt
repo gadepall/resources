@@ -17,9 +17,18 @@ chmod +x configure
 ./configure
 make
 make install 
-ssh -n -L 8086:localhost:8086 root@10.0.0.10 '/usr/sbin/ser2net -d -C "8086:raw:600:/dev/ttyACM0:115200 NONE 1STOPBIT 8DATABITS -XONXOFF LOCAL -RTSCTS HANGUP_WHEN_DONE "' &
+#In one terminal
+ssh pi@10.0.0.10 
+sudo ser2net -d -C "8086:raw:600:/dev/ttyACM0:115200 NONE 1STOPBIT 8DATABITS -XONXOFF LOCAL -RTSCTS HANGUP_WHEN_DONE" &
+#Open another terminal
+ssh -tt -n -L 8086:localhost:8086 pi@10.0.0.10
+#Open another terminal
+avra filename.asm
+avrdude -p atmega328p -c arduino -P net:localhost:8086 -U flash:w:filename.hex
 
-avrdude -p atmega328p -c arduino -P net:localhost:8086 -U flash:w:hello.hex
+#ssh -tt -n -L 8086:localhost:8086 root@10.0.0.10 '/usr/sbin/ser2net -d -C "8086:raw:600:/#dev/ttyACM0:115200 NONE 1STOPBIT 8DATABITS -XONXOFF LOCAL -RTSCTS #HANGUP_WHEN_DONE "' &
+
+#avrdude -p atmega328p -c arduino -P net:localhost:8086 -U flash:w:hello.hex
 #avrdude -C /path/to/avrdude.conf -p atmega328p -c arduino -P net:localhost:8086 -U flash:w:/path/to/file.hex:i
 
 
