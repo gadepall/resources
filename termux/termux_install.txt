@@ -10,7 +10,10 @@ imagemagick \
 gcc-7 python python-dev libpng-dev freetype-dev numpy scipy \
 x11-repo \
 pkg install texlive ghostscript texinfo
-
+# Make gcc default
+setupgcc-7
+#If you want clang instead of gcc
+setupclang
 #Access internal storage
 termux-setup-storage
 #python

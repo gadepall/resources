@@ -1,0 +1,8 @@
+#Install go
+pkg install golang
+#Refer to
+https://github.com/arduino/arduino-cli/blob/master/README.md
+#Install arduino-cli
+cd ~
+go get -u github.com/arduino/arduino-cli
+cp go/bin/arduino-cli $PREFIX/bin

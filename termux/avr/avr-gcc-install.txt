@@ -1,0 +1,39 @@
+#Install binutils for avr
+wget http://ftp.gnu.org/gnu/binutils/binutils-2.31.tar.gz
+tar -zxvf binutils-2.31.tar.gz
+cd binutils-2.31
+termux-fix-shebang configure
+mkdir obj-avr
+../configure --prefix=$PREFIX --target=avr --disable-nls
+make -j 4
+make install
+
+#The following does't work
+
+#Install avr-gcc
+wget https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz
+tar -xf gcc-8.2.0.tar.xz
+cd gcc-8.2.0
+wget https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz
+tar -xf gmp-6.1.2.tar.xz gmp
+wget https://www.mpfr.org/mpfr-current/mpfr-4.0.1.tar.xz
+tar -xf mpfr-4.0.1.tar.xz
+wget https://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz
+tar -zxvf mpc-1.1.0.tar.gz
+wget ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.18.tar.bz2
+tar -xf isl-0.18.tar.bz2
+mkdir obj-avr
+cd  obj-avr
+../configure --prefix=$PREFIX --target=avr --enable-languages=c,c++     --disable-nls \ 
+--disable-libssp --with-dwarf2 --enable-default-pie --disable-multilib --disable-multi-os-directory
+#Error clang-7: error: unsupported option '-print-multi-os-directory
+make -j 4
+make install
+#Install avr-libc
+wget http://download.savannah.gnu.org/releases/avr-libc/avr-libc-2.0.0.tar.bz2
+gunzip -c avr-libc-<version>.tar.gz | tar xf -
+cd avr-libc-2.0.0
+./configure --prefix=$PREFIX  --host=avr
+./configure --prefix=$PREFIX --build='./config.guess' --host=avr
+make -j 4
+make install
