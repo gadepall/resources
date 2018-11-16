@@ -48,3 +48,9 @@ export DISPLAY=":1"
 mogrify -format eps *.jpg
 #Mount locations for external storage
 https://android.stackexchange.com/questions/5232/how-can-i-view-the-android-internal-partition-table
+#Reinstall pip if there is a conflict between pip2 and pip3
+python -m pip install -U --force-reinstall pip
+
+#Install python sound support
+pip install pysoundfile
+pkg install libsndfile
