@@ -1,0 +1,10 @@
+#Download latex2rtf
+wget https://sourceforge.net/projects/latex2rtf/files/latex2rtf-unix/2.3.17/latex2rtf-2.3.17.tar.gz
+tar -xf latex2rtf-2.3.17.tar.gz
+cd latex2rtf-2.3.17
+nano Makefile
+#Modify the following line
+DESTDIR?=/data/data/com.termux/files/usr
+#save and exit Makefile
+#make -j 4
+#make install

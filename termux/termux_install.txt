@@ -7,7 +7,7 @@ pkg upgrade && pkg install autoconf automake bison bzip2 clang cmake \
 coreutils diffutils flex gawk git grep gzip libtool make patch perl  \
 sed silversearcher-ag tar wget pkg-config openssh subversion \
 imagemagick \
-gcc-7 python python-dev libpng-dev freetype-dev numpy scipy \
+gcc-8 python python-dev libpng-dev freetype-dev numpy scipy \
 x11-repo \
 pkg install texlive ghostscript texinfo
 # Make gcc default
@@ -52,5 +52,12 @@ https://android.stackexchange.com/questions/5232/how-can-i-view-the-android-inte
 python -m pip install -U --force-reinstall pip
 
 #Install python sound support
+pkg install libffi-dev libsndfile
 pip install pysoundfile
-pkg install libsndfile
+
+
+#Steps for installing packages from source
+termux-fix-shebang configure
+./configure --prefix=$PREFIX 
+make
+make install  
