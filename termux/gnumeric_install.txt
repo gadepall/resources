@@ -1,0 +1,34 @@
+cd ~
+pkg install libexpat-dev
+cpan install XML::Parser
+wget https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz
+install intltool
+pkg install gettext gettext-dev
+pkg install libcairo-dev
+pkg install glib-dev
+pkg install libpixman-dev
+pkg install fontconfig-dev
+pkg install libxapian
+pkg install libuuid-dev
+pkg install pango-dev
+pkg install fribidi-dev
+pkg install libxslt libxslt-dev
+pkg install gdk-pixbuf gdk-pixbuf-dev
+pkg install librsvg librsvg-dev
+wget http://ftp.gnome.org/pub/gnome/sources/libgsf/1.14/libgsf-1.14.41.tar.xz
+tar -xf libgsf-1.14.41.tar.xz
+cd libgsf-1.14.41
+nano tools/gsf.c
+#All the g_print lines should have %s as follows
+g_print ("%s",_("Available subcommands are...\n"));
+#Then configure and make
+wget https://download.gnome.org/sources/goffice/0.10/goffice-0.10.44.tar.xz
+#While configuring
+./configure --prefix=$PREFIX  --without-gtk
+make -j 4
+#This will throw up lot of errors. Go to the files and uncomment various functions.  This is #mostly a trial and error thing.  But it will build goffice with warnings.
+wget http://files.itstool.org/itstool/itstool-2.0.5.tar.bz2
+wget gnumeric
+make changes in gnumeric configure to avoid gtk errors
+
+configure: error: configuration without gtk+ currently does not work
