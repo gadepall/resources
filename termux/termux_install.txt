@@ -61,3 +61,6 @@ termux-fix-shebang configure
 ./configure --prefix=$PREFIX 
 make -j 4
 make install  
+
+ssconvert --export-type=Gnumeric_html:latex projects.xlsx projects.tex
+http://hplgit.github.io/web4sciapps/doc/pub/._web4sa_flask004.html
