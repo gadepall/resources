@@ -1,0 +1,12 @@
+pip install flask
+pip install mysql-connector
+
+#Start mariadb
+mkdir $PREFIX/etc/my.cnf.d
+mysql_install_db
+mysqld
+mysql -u root
+mysql_secure_installation
+#Save Database
+mysqldump database_name > filename.sql
+mysql -u root --password= daabase_name < filename.sql
