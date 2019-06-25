@@ -64,3 +64,4 @@ make install
 
 ssconvert --export-type=Gnumeric_html:latex projects.xlsx projects.tex
 http://hplgit.github.io/web4sciapps/doc/pub/._web4sa_flask004.html
+ssconvert --export-type=Gnumeric_html:html40 filename.xls filename.html

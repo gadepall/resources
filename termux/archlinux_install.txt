@@ -1,0 +1,30 @@
+#Installing archlinux on termux
+pkg install wget 
+wget https://raw.githubusercontent.com/sdrausty/TermuxArch/master/setupTermuxArch.sh
+bash setupTermuxArch.sh
+
+#Starting archlinux on termux
+bash /arch/startcarch
+
+#VNC
+pacman -Sy vncserver lxde xorg-xinit
+vncserver
+#Follow instructions and set a password
+
+#Configure vnc
+nano /root/.vnc/xstartup
+
+#!/bin/bash
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+exec startlxde
+
+#Comment everything else in the above file
+
+nano /root/.vnc/config
+
+geometry=1200x700
+localhost
+
+#On Android install vncviewer
+#Configure to localhost:1

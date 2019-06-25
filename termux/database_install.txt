@@ -1,0 +1,33 @@
+virtualenv -p python3 envname
+source envname/bin/activate
+
+pkg install libjpeg-turbo-dev 
+pip install Flask
+pip install XlsxWriter
+pip install Flask-WTF
+pip install flask-login
+pip install gunicorn
+pip install pyPDF2
+pip install reportlab
+pip install flask-sqlalchemy
+
+>>>python
+>>>from flaskabc import db
+>>>db.drop_all()
+>>>db.create_all()
+>>>exit()
+
+deactivate
+
+change ip by doing sudo nano /etc/supervisor/conf.d/myapp.conf
+
+[program:myapp]
+directory=/home/pi/myapp
+command=/home/pi/myapp/venv/bin/gunicorn app:app -b 0.0.0.0:8002
+autostart=true
+autorestart=true
+
+sudo supervisorctl reread
+sudo service supervisor restart
+sudo supervisorctl status
+sudo service supervisor stop
