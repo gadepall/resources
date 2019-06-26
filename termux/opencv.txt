@@ -1,0 +1,7 @@
+pkg install cmake pkg-config libjpeg-turbo-dev libpng-dev python python-dev
+git clone https://github.com/opencv/opencv && cd opencv
+mkdir build && cd build
+LDFLAGS=" -llog -lpython3" cmake -DCMAKE_BUILD_TYPE=RELEASE -\ DCMAKE_INSTALL_PREFIX=$PREFIX -DBUILD_opencv_python3=on -DBUILD_opencv_python2=off -\ DWITH_QT=OFF -DWITH_GTK=OFF -DPYTHON_DEFAULT_EXECUTABLE=$(which python3)  ..
+make -j 4
+make install
+

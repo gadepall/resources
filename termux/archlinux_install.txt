@@ -1,13 +1,17 @@
 #Installing archlinux on termux
+pkg update
 pkg install wget 
 wget https://raw.githubusercontent.com/sdrausty/TermuxArch/master/setupTermuxArch.sh
 bash setupTermuxArch.sh
 
+#Uninstalling archlinux
+bash setupTermuxArch.sh purge
+
 #Starting archlinux on termux
-bash /arch/startcarch
+bash /arch/startarch
 
 #VNC
-pacman -Sy vncserver lxde xorg-xinit
+pacman -Sy tigervnc lxde xorg-xinit
 vncserver
 #Follow instructions and set a password
 
