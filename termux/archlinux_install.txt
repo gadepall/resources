@@ -27,8 +27,11 @@ exec startlxde
 
 nano /root/.vnc/config
 
-geometry=1200x700
+geometry=1800x800
 localhost
+
+#For portrait mode
+geometry=1800x800
 
 #On Android install vncviewer
 #Configure to localhost:1
