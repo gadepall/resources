@@ -12,6 +12,7 @@ bash /arch/startarch
 
 #VNC
 pacman -Sy tigervnc lxde xorg-xinit
+#start vncserver
 vncserver
 #Follow instructions and set a password
 
@@ -27,11 +28,15 @@ exec startlxde
 
 nano /root/.vnc/config
 
+#For landscape mode
 geometry=1800x800
 localhost
 
 #For portrait mode
-geometry=1800x800
+geometry=800x1200
 
 #On Android install vncviewer
 #Configure to localhost:1
+
+#for stopping vncserver
+vncserver -kill :1
