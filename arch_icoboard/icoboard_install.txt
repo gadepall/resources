@@ -1,0 +1,26 @@
+#Prerequisites
+pacman -S  sudo clang bison flex git svn make
+pacman -S gawk tcl libffi mercurial graphviz
+pacman -S xdot pkg-config python libftdi
+
+#Source installation
+
+#WiringPi
+git clone git://git.drogon.net/wiringPi
+cd wiringPi && ./build
+
+#Icoprog
+svn co http://svn.clifford.at/handicraft/2015/icoprog
+cd icoprog && make install
+
+#Icestorm
+git clone https://github.com/cliffordwolf/icestorm
+cd icestorm && make && sudo make install
+
+#arachne-pnr
+git clone https://github.com/cseed/arachne-pnr
+cd arachne-pnr && make && sudo make install
+
+#Yosys
+git clone https://github.com/cliffordwolf/yosys
+cd yosys && make && sudo make install
