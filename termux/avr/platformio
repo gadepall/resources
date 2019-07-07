@@ -1,0 +1,12 @@
+#Install platformio
+pacman -S python2-pip
+pip2 install platformio
+#Follow instructions on platformio website for installing avr toolchain
+
+#cd to the src directory
+#modify main.cpp for the code
+#go outside the source director
+pio run -e uno
+cd /data/data/com.termux/files/home/storage/shared/tlc/resources/termux/avr/pio_codes/.pioenvs/uno
+#where pio_codes is the main directory
+#Flash the firmware.hex file using avrdude
