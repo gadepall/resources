@@ -1,5 +1,20 @@
-#In usb tethering mode, finding ip address of rpi
-ip neighbor
-
+#First connect to raspberry pi using ethernet or wifi
 #Finding devices connected in network
 nmap -sn 10.0.0.1/24
+ssh pi@10.0.0.6
+
+#Connecting raspberry pi with android over usb
+
+sudo nano /etc/network/interfaces
+
+allow-hotplug usb0
+iface usb0 inet dhcp
+
+#save and exit.  reboot
+
+#In usb tethering mode, finding ip address of rpi
+ip neighbor
+#You may see
+192.168.42.239 dev rndis0 lladdr 66:54:f4:23:44:6c REACHABLE
+ssh pi@192.168.42.239 
+
