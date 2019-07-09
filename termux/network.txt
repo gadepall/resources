@@ -1,3 +1,9 @@
+#Insert the sdcard and open the /boot/ folder
+#Create an empty txt file and name it as ssh
+#Ensure that there are no extensions to the ssh file
+
+#Inster the sdcard into the raspberry pi
+
 #First connect to raspberry pi using ethernet or wifi
 #Finding devices connected in network
 nmap -sn 10.0.0.1/24
@@ -10,7 +16,25 @@ sudo nano /etc/network/interfaces
 allow-hotplug usb0
 iface usb0 inet dhcp
 
-#save and exit.  reboot
+
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+iface default inet dhcp
+
+#save and exit.  
+
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+    ssid="YOUR_SSID_HERE"
+    psk="YOUR_SECRET_PASSPHRASE_HERE"
+    id_str="SOME_DESCRIPTIVE_NAME"
+}
+
+sudo reboot
 
 #In usb tethering mode, finding ip address of rpi
 ip neighbor
