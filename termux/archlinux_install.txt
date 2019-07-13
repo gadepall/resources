@@ -1,3 +1,4 @@
+
 #Installing archlinux on termux
 pkg update
 pkg install wget 
@@ -10,8 +11,21 @@ bash setupTermuxArch.sh purge
 #Starting archlinux on termux
 bash /arch/startarch
 
+#startarch help
+
+startarch: Start Arch Linux as root.  This account is reserved for system administration.
+
+startarch c[md] cmd: Run Arch Linux command from Termux as root user.
+
+startarch u[ser]|l[ogin] user: Login as user.  Use startarch c addauser user first to create this user and user's home directory.
+
+startarch r[aw]: Construct the startarch proot statement from exec.../bin/.  For example startarch r su will exec su in Arch Linux.
+
+startarch s[u] user cmd: Login as user and execute command.  Use startarch c addauser user first to create this user and user's home directory.
+
+
 #VNC
-pacman -Sy tigervnc lxde xorg-xinit
+pacman -Sy tigervnc lxde base base-devel wget git geany python-pip tff-dejavu chromium
 #start vncserver
 vncserver
 #Follow instructions and set a password
@@ -29,8 +43,9 @@ exec startlxde
 nano /root/.vnc/config
 
 #For landscape mode
-geometry=1800x800
+geometry=1900x900
 localhost
+
 
 #For portrait mode
 geometry=800x1200
@@ -40,3 +55,21 @@ geometry=800x1200
 
 #for stopping vncserver
 vncserver -kill :1
+
+#AVR
+pacman -Sy avrdude avr-gcc avr-libc python2-pip
+pip2 install platformio
+
+#STM32
+pacman -S  autoconf libtool make automake texinfo pkg-config wget
+
+#download the source invariant tar file from 
+https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
+
+bash arch/startarch ul user
+tar -xvf gcc-arm-none-eabi-8-2018-q4-major-src.tar.bz2
+cd gcc-arm-none-eabi-8-2018-q4-major
+./install-sources.sh --skip_steps=mingw32
+./build-prerequisites.sh --skip_steps=mingw32
+./build-toolchain.sh --skip_steps=mingw32,manual
+

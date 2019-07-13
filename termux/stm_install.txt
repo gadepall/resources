@@ -1,0 +1,14 @@
+#On termux
+apt install  build-essential autoconf autogen bison dejagnu flex  flip  gawk git gperf gzip nsis openssh-client p7zip-full perl python-dev libisl-dev scons tcl texinfo tofrodos wget zip libncurses5-dev p7zip
+
+#On archlinux
+pacman -S  autoconf libtool make automake texinfo pkg-config wget
+
+#download the source invariant tar file from 
+https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
+
+tar -xvf gcc-arm-none-eabi-8-2018-q4-major-src.tar.bz2
+cd gcc-arm-none-eabi-8-2018-q4-major
+./install-sources.sh --skip_steps=mingw32
+./build-prerequisites.sh --skip_steps=mingw32
+./build-toolchain.sh --skip_steps=mingw32,manual
