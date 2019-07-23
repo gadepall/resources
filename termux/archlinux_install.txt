@@ -25,7 +25,7 @@ startarch s[u] user cmd: Login as user and execute command.  Use startarch c add
 
 
 #VNC
-pacman -Sy tigervnc lxde base base-devel wget git geany python-pip tff-dejavu chromium
+pacman -Sy tigervnc lxde base base-devel wget git geany python-pip ttf-dejavu  chromium
 #start vncserver
 vncserver
 #Follow instructions and set a password
