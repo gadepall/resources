@@ -1,0 +1,10 @@
+\select@language {english}
+\beamer@sectionintoc {2}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {2}{1}{Literature}{3}{0}{1}
+\beamer@subsectionintoc {2}{2}{Motivation}{16}{0}{1}
+\beamer@sectionintoc {3}{Problems Addressed}{20}{0}{2}
+\beamer@subsectionintoc {3}{1}{Power Allocation for Uniform Illumination with Stochastic LED Arrays}{20}{0}{2}
+\beamer@subsectionintoc {3}{2}{Performance of Stochastic LED Arrays based VLC}{26}{0}{2}
+\beamer@subsectionintoc {3}{3}{Closed-form expressions of BER for BPP in circular region}{40}{0}{2}
+\beamer@subsectionintoc {3}{4}{Optimal Power Allocation for Uniform Illumination}{46}{0}{2}
+\beamer@sectionintoc {4}{References}{58}{0}{3}
