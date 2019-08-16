@@ -1,0 +1,6 @@
+\beamer@sectionintoc {2}{Problem}{3}{0}{1}
+\beamer@sectionintoc {3}{Solution}{4}{0}{2}
+\beamer@subsectionintoc {3}{1}{Centre}{4}{0}{2}
+\beamer@subsectionintoc {3}{2}{Diameter}{5}{0}{2}
+\beamer@subsectionintoc {3}{3}{Radius}{6}{0}{2}
+\beamer@sectionintoc {4}{Plot}{7}{0}{3}
