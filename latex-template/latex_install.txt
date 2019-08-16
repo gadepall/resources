@@ -1,3 +1,5 @@
 #Open a terminal and type
 
-sudo apt install texlive-publishers texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-science texmaker okular gv inkscape gnumeric
+sudo apt install subversion git texlive-publishers texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-science texmaker okular gv inkscape gnumeric
+
+svn checkout https://github.com/gadepall/resources/trunk/latex-template/
