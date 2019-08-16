@@ -1,0 +1,3 @@
+#Open a terminal and type
+
+sudo apt install texlive-publishers texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-science texmaker okular gv inkscape gnumeric

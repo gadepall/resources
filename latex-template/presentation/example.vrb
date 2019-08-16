@@ -1,0 +1,15 @@
+\frametitle{Plot}
+The code in
+{\footnotesize
+\begin{lstlisting}
+https://github.com/gadepall/resources/raw/master/latex-template/presentation/codes/example.py
+\end{lstlisting}
+}
+plots Fig. \ref{fig:circle_diameter}.
+%
+\begin{figure}
+\centering
+\includegraphics[width=0.6\columnwidth]{./figs/circle_diameter.eps}
+\caption{Circle $C$ and all lines (i)-(iv). (ii) is a diameter.}
+\label{fig:circle_diameter}
+\end{figure}
