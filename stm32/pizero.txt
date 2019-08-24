@@ -1,0 +1,17 @@
+#On termux
+make clean
+make bin
+scp main.bin pi@10.0.0.6:./sandbox/openocd/
+
+On rpi
+#install telnet
+sudo apt install telnet
+#Check gpio pin configuration
+pinout
+# Check sysfsgpio-raspberrypi.cfg for clk and dio pins on rpizero
+#execute openocd
+sudo openocd -f /usr/local/share/openocd/scripts/interface/sysfsgpio-raspberrypi.cfg -c 
+"transport select swd" -c "adapter_khz 1000" -f /usr/local/share/openocd/scripts/target/stm32f1x.cfg
+#telnet
+cd sandbox/openocd
+tenet localhost 4444
