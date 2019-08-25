@@ -16,7 +16,6 @@ mv configure.in configure.ac
 termux-fix-shebang configure
 ./configure --prefix=$PREFIX
 make -j 4
-cp avra $PREFIX/bin
 #Now any .asm file can be executed using 
 avra filename.asm
 
