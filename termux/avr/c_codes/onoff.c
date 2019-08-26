@@ -12,10 +12,10 @@ int main (void)
   DDRB    |= ((1 << DDB5));
   while (1) {
 //turn led on    
-    PORTB = ((0 <<  PB5));
+//    PORTB = ((0 <<  PB5));
 
 //turn led off
-//    PORTB = ((1 <<  PB5));
+    PORTB = ((1 <<  PB5));
   }
 
   /* . */
