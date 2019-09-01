@@ -1,30 +1,40 @@
-pkg update
+apt update && apt upgrade
+apt install build-essential
+
+#Mandatory packages
+apt install git silversearcher-ag wget openssh subversion imagemagick 
+
+#Access internal storage
+termux-setup-storage
+
+#Python installation
 #Add pointless repo
 wget https://its-pointless.github.io/setup-pointless-repo.sh
 bash setup-pointless-repo.sh
-#Mandatory packages
-pkg upgrade && pkg install autoconf automake bison bzip2 clang cmake \
-coreutils diffutils flex gawk git grep gzip libtool make patch perl  \
-sed silversearcher-ag tar wget pkg-config openssh subversion \
-imagemagick \
-gcc-8 python python-dev libpng-dev freetype-dev numpy scipy \
-x11-repo \
-pkg install texlive ghostscript texinfo
-# Make gcc default
-setupgcc-7
-#If you want clang instead of gcc
-setupclang
-#Access internal storage
-termux-setup-storage
+apt install gcc-8 python  x11-repo 
+apt  install numpy scipy 
 #python
 pip install matplotlib mpmath
+
 #Latex
-tlmgr update --list
-tlmgr install scheme-full
+apt install texlive-full ghostscript texinfo
 wget https://raw.githubusercontent.com/gadepall/resources/master/termux/tex2pdf.sh
+chmod +x tex2pdf.sh
 cp tex2pdf.sh $PREFIX/bin/
 #Execute filename.tex as
 tex2pdf filename
+
+#The following two commands are optional, use only if you know what it means
+# Make gcc default
+setupgcc-8
+#If you want clang instead of gcc
+setupclang
+
+#Latex alternative install, use only if you know what it means
+apt install texlive
+tlmgr update --list
+tlmgr install scheme-full
+
 #VNC
 pkg install tigervnc fluxbox openbox pypanel xorg-xsetroot
 nano ~/.vnc/xstartup
@@ -44,6 +54,7 @@ pypanel &
 #save and exit
 nano ${PREFIX}/etc/bash.bashrc
 export DISPLAY=":1"
+
 #Batch convert files
 mogrify -format eps *.jpg
 #Mount locations for external storage

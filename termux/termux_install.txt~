@@ -1,28 +1,40 @@
-#Mandatory packages
-pkg update
-pkg upgrade && pkg install autoconf automake bison bzip2 clang cmake \
-coreutils diffutils flex gawk git grep gzip libtool make patch perl  \
-sed silversearcher-ag tar wget pkg-config openssh
+apt update && apt upgrade
+apt install build-essential
 
-#Storage access
+#Mandatory packages
+apt install git silversearcher-ag wget openssh subversion imagemagick 
+
+#Access internal storage
 termux-setup-storage
-#X11
-pkg install x11-repo
+
+#Python installation
 #Add pointless repo
 wget https://its-pointless.github.io/setup-pointless-repo.sh
 bash setup-pointless-repo.sh
-#Install gcc-7
-pkg install gcc-7
+apt install gcc-8 python  x11-repo 
+apt  install numpy scipy 
 #python
-pkg install python python-dev libpng-dev freetype-dev numpy scipy
 pip install matplotlib mpmath
+
 #Latex
-pkg install texlive ghostscript texinfo
-tlmgr update --list
-tlmgr install scheme-full
+apt install texlive-full ghostscript texinfo
+wget https://raw.githubusercontent.com/gadepall/resources/master/termux/tex2pdf.sh
+chmod +x tex2pdf.sh
 cp tex2pdf.sh $PREFIX/bin/
 #Execute filename.tex as
 tex2pdf filename
+
+#The following two commands are optional, use only if you know what it means
+# Make gcc default
+setupgcc-8
+#If you want clang instead of gcc
+setupclang
+
+#Latex alternative install, use only if you know what it means
+apt install texlive
+tlmgr update --list
+tlmgr install scheme-full
+
 #VNC
 pkg install tigervnc fluxbox openbox pypanel xorg-xsetroot
 nano ~/.vnc/xstartup
@@ -42,3 +54,25 @@ pypanel &
 #save and exit
 nano ${PREFIX}/etc/bash.bashrc
 export DISPLAY=":1"
+
+#Batch convert files
+mogrify -format eps *.jpg
+#Mount locations for external storage
+https://android.stackexchange.com/questions/5232/how-can-i-view-the-android-internal-partition-table
+#Reinstall pip if there is a conflict between pip2 and pip3
+python -m pip install -U --force-reinstall pip
+
+#Install python sound support
+pkg install libffi-dev libsndfile
+pip install pysoundfile
+
+
+#Steps for installing packages from source
+termux-fix-shebang configure
+./configure --prefix=$PREFIX 
+make -j 4
+make install  
+
+ssconvert --export-type=Gnumeric_html:latex projects.xlsx projects.tex
+http://hplgit.github.io/web4sciapps/doc/pub/._web4sa_flask004.html
+ssconvert --export-type=Gnumeric_html:html40 filename.xls filename.html
