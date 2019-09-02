@@ -9,10 +9,11 @@ tar -xf libusb-1.0.21.tar.bz2
 cd libusb-1.0.21
 termux-fix-shebang configure
 ./configure --prefix=$PREFIX --disable-udev
-make - j 4
+make -j 4
 make install  
 #Install avrdude
-tar -zxvf avrdude-6.x.tar.gz
+wget http://download.savannah.gnu.org/releases/avrdude/avrdude-6.3.tar.gz
+tar -xf avrdude-6.x.tar.gz
 cd avrdude-6.0
 rm config.guess config.sub
 wget -O config.guess 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD'
