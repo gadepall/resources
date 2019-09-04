@@ -1,7 +1,7 @@
 #Prerequisites
-pacman -S  sudo clang bison flex git svn make
-pacman -S gawk tcl libffi mercurial graphviz
-pacman -S xdot pkg-config python libftdi
+pacman -S  sudo clang bison flex git svn make \
+gawk tcl libffi mercurial graphviz \
+xdot pkg-config python libftdi
 
 #Source installation
 
