@@ -42,3 +42,9 @@ ip neighbor
 192.168.42.239 dev rndis0 lladdr 66:54:f4:23:44:6c REACHABLE
 ssh pi@192.168.42.239 
 
+#Accessing pi usb over wifi
+#logon to the pi
+sudo apt install ser2net
+
+#Open a terminal
+ssh -tt -n -L 8086:localhost:8086 pi@10.0.0.8 '/usr/sbin/ser2net -d -C "8086:raw:600:/dev/ttyACM0:115200 NONE 1STOPBIT 8DATABITS -XONXOFF LOCAL -RTSCTS HANGUP_WHEN_DONE "' 
