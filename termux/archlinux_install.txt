@@ -4,6 +4,20 @@ pkg update
 wget https://raw.githubusercontent.com/sdrausty/TermuxArch/master/setupTermuxArch.sh
 bash setupTermuxArch.sh
 
+#If some  sha512sum occurs, do the following
+cd $PREFIX/bin/applets/
+ln -s ../busybox awk
+ln -s ../busybox sha512sum
+ln -s ../busybox rev
+ln -s ../busybox tar
+ln -s ../busybox uname
+ln -s ../busybox md5sum
+
+#If archlinux is not downloaded,
+
+bash setupTermuxArch.sh manual
+# and change the mirror (you will have to google and find the mirrors for downloading archlinuxarm)
+
 #Uninstalling archlinux
 bash setupTermuxArch.sh purge
 
