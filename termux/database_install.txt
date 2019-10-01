@@ -1,15 +1,8 @@
 virtualenv -p python3 envname
 source envname/bin/activate
 
-pkg install libjpeg-turbo-dev 
-pip install Flask
-pip install XlsxWriter
-pip install Flask-WTF
-pip install flask-login
-pip install gunicorn
-pip install pyPDF2
-pip install reportlab
-pip install flask-sqlalchemy
+pkg install libjpeg-turbo
+pip install Flask XlsxWriter  Flask-WTF flask-login gunicorn pyPDF2 reportlab flask-sqlalchemy inflect
 
 >>>python
 >>>from flaskabc import db

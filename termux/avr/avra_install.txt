@@ -8,6 +8,8 @@ cd avra-1.3.0
 cp README AUTHORS ./src
 cd src
 #Create empty files with names NEWS, ChangeLog
+nano NEWS
+nano ChangeLog
 #Create avra binary
 chmod +x bootstrap
 chmod +x configure
@@ -17,6 +19,11 @@ termux-fix-shebang configure
 ./configure --prefix=$PREFIX
 make -j 4
 cp avra $PREFIX/bin
+wget https://github.com/gadepall/resources/raw/master/termux/avr/m328Pdef/m328Pdef.inc
+cp m328Pdef.inc ~/
+wget https://github.com/gadepall/resources/raw/master/termux/avr/asm_codes/hello.asm
+avra hello.asm
+#You should see hello.hex generated
 #Now any .asm file can be executed using 
 avra filename.asm
 

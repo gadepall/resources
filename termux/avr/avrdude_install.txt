@@ -13,8 +13,8 @@ make -j 4
 make install  
 #Install avrdude
 wget http://download.savannah.gnu.org/releases/avrdude/avrdude-6.3.tar.gz
-tar -xf avrdude-6.x.tar.gz
-cd avrdude-6.0
+tar -xf avrdude-6.3.tar.gz
+cd avrdude-6.3
 rm config.guess config.sub
 wget -O config.guess 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD'
 wget -O config.sub 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD'

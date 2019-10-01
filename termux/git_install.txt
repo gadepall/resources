@@ -2,3 +2,4 @@ apt install git-lfs
 #Got to repository and type
 git lfs install
 #The above command has to be typed for each repository
+git 

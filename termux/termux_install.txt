@@ -2,7 +2,7 @@ apt update && apt upgrade
 apt install build-essential
 
 #Mandatory packages
-apt install git silversearcher-ag wget openssh subversion imagemagick proot
+apt install git silversearcher-ag wget openssh subversion imagemagick proot nano
 
 #Access internal storage
 termux-setup-storage
