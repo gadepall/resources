@@ -1,12 +1,17 @@
 #Install numpy, scipy, mpmath, matplotlibpkg update
 cd ~
 pkg install python python-dev libpng-dev freetype-dev numpy scipy 
-#python
-pip install matplotlib mpmath cvxpy
+
+#python packages
+pip install matplotlib mpmath cvxpy 
+
 #Installing cvxopt 
+pip install cvxopt
+#if the above command fails, Issue with installing latest version Error:  umfpack.h not found
+#Probably have to install suitesparse from source
+#Then install following version of  cvxopt
+
 wget https://github.com/cvxopt/cvxopt/archive/1.1.8.tar.gz
 tar -zxvf 1.1.8.tar.gz
 cd cvxopt-1.1.8
 python setup.py install
-#Issue with installing latest version Error:  umfpack.h not found
-#Probably have to install suitesparse from source

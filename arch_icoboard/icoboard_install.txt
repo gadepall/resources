@@ -6,22 +6,28 @@ xdot pkg-config python libftdi
 #Source installation
 
 #WiringPi
+#On termuxarch run as root user
 git clone https://github.com/WiringPi/WiringPi.git
-#git clone git://git.drogon.net/wiringPi
 cd wiringPi && ./build
 
+
 #Icoprog
+#On termuxarch run as root user
+#With termuxarch and pizero, this is the only tool required at the pi
 svn co http://svn.clifford.at/handicraft/2015/icoprog
 cd icoprog && make install
 
 #Icestorm
+#On termuxarch run as normal user without sudo
 git clone https://github.com/cliffordwolf/icestorm
-cd icestorm && make && sudo make install
+cd icestorm && make -j4 && sudo make install
 
 #arachne-pnr
+#On termuxarch run as normal user without sudo
 git clone https://github.com/cseed/arachne-pnr
-cd arachne-pnr && make && sudo make install
+cd arachne-pnr && make -j4 && sudo make install
 
 #Yosys
+#On termuxarch run as normal user without sudo
 git clone https://github.com/cliffordwolf/yosys
-cd yosys && make && sudo make install
+cd yosys && make -j4 && sudo make install
