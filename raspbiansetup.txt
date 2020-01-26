@@ -1,2 +1,5 @@
+Installing Raspbian
 #Download Raspbian Buster with desktop and recommended software from the following link
 https://www.raspberrypi.org/downloads/raspbian/
+#Go to the directory where the raspbianxx.zip image is downloaded and unzip 
+#
