@@ -15,7 +15,7 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1
 pip install --upgrade pip
 
 #Installing python for math computing
-sudo apt-get install libatlas-base-dev gfortran
+sudo apt-get install libatlas-base-dev gfortran python-pybind11
 sudo apt install python-setuptools python-numpy python-scipy python-matplotlib python-mpmath python-cvxopt python-sympy
 sudo pip install cvxpy
 #Install latex
