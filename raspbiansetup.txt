@@ -9,5 +9,5 @@ sudo dd bs=4M if=xxxraspbianxxx.img of=/dev/sdX conv=fsync
 ##Plug the sdcard into your rpi and power up.  Make sure that you are connected to the internet.  Open a terminal and type the #following commands
 sudo apt update && sudo apt upgrade
 #Installing python for math computing
-pip install numpy scipy matplotlib mpmath cvxpy
+pip install numpy scipy matplotlib mpmath cvxpy sympy
 
