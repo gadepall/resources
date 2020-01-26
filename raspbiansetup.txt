@@ -5,7 +5,7 @@ https://www.raspberrypi.org/downloads/raspbian/
 #Assuming that you have a usb sdcard reader, find the mount location of your card reader
 sudo fdisk -l
 #If the location of your usb sdcard is /dev/sdX,
-sudo dd bs=4M if=2019-09-26-raspbian-buster.img of=/dev/sdX conv=fsync
+sudo dd bs=4M if=xxxraspbianxxx.img of=/dev/sdX conv=fsync
 ##Plug the sdcard into your rpi and power up.  Make sure that you are connected to the internet.  Open a terminal and type the #following commands
 sudo apt update && sudo apt upgrade
 #Installing python for math computing
