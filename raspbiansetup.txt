@@ -17,4 +17,6 @@ pip install --upgrade pip
 #Installing python for math computing
 sudo apt-get install libatlas-base-dev gfortran
 sudo pip install numpy scipy matplotlib mpmath cvxopt cvxpy sympy
+#Install latex
+sudo apt install texlive-full texmaker
 
