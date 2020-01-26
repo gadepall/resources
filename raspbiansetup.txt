@@ -12,6 +12,7 @@ sudo apt update && sudo apt upgrade
 python3 --version
 sudo update-alternatives --list python
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1
+pip install --upgrade pip
 
 #Installing python for math computing
 sudo apt-get install libatlas-base-dev
