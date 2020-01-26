@@ -8,12 +8,10 @@ sudo fdisk -l
 sudo dd bs=4M if=xxxraspbianxxx.img of=/dev/sdX conv=fsync
 ##Plug the sdcard into your rpi and power up.  Make sure that you are connected to the internet.  Open a terminal and type the #following commands
 sudo apt update && sudo apt upgrade
-#Install python3
-sudo apt install python3
+#Check python3 version
+python3 --version
 sudo update-alternatives --list python
-update-alternatives --install /usr/bin/python python /usr/bin/python3.4 1
-#Check python version
-python --version
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1
 #Installing python for math computing
-pip install numpy scipy matplotlib mpmath cvxpy sympy
+sudo pip install numpy scipy matplotlib mpmath cvxopt cvxpy sympy
 
