@@ -68,5 +68,3 @@ wget https://raw.githubusercontent.com/gadepall/arduino/master/assembly/setup/co
 #Configure geany and test AVR-Assembly by following the instructions in
 https://github.com/gadepall/arduino/blob/master/assembly/setup/gvv_ard_assembly_setup.pdf
 
-https://github.com/gadepall/arduino/blob/master/assembly/setup/gvv_ard_assembly_setup.pdf
-
