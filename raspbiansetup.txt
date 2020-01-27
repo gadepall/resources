@@ -51,4 +51,9 @@ training/math/figs/tri_sss_alone.tex
 training/math/gvv_math_eg.tex
 #and execute
 
+#Installing Arduino and AVR toolchain
+sudo apt install arduino
+
+#Test Arduino  by following the instructions in 
+https://github.com/gadepall/arduino/blob/master/ide/setup/gvv_ard_ide_setup.pdf
 
