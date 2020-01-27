@@ -24,7 +24,7 @@ sudo apt-get install libatlas-base-dev gfortran python-pybind11
 sudo pip install setuptools numpy scipy matplotlib mpmath sympy  cvxpy
 sudo pip install cvxopt
 #if cvxopt fails, then
-sudo pip pip install -Iv cvxopt==1.1.8
+sudo pip install -Iv cvxopt==1.1.8
 
 #Install latex
 sudo apt install texlive-full texmaker okular
