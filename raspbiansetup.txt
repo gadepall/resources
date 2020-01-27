@@ -136,6 +136,10 @@ sysfsgpio_srst_num 24
 reset_config_srst_only srst_push_pull
 #End pin configuration for SWDIO, SWCLK and RESET Pins for RPi-STM32 connection
 
+#Pin Connections from RPi to STM
+#Connect according to Table III in the following manual
+https://github.com/gadepall/arm-embedded/blob/master/setup/gvv_stm32_tinker_setup.pdf
+
 #sysfsgpio configuration for communication
 cp ~/sandbox/STM32F103C8T6/refs/openocd.cfg ~/sandbox/openocd
 sudo openocd -f /usr/local/share/openocd/scripts/interface/sysfsgpio-raspberrypi.cfg -c "transport select swd" -c "adapter_khz 1000" -f /usr/local/share/openocd/scripts/target/stm32f1x.cfg
@@ -146,9 +150,11 @@ CC=arm-none-eabi-gcc
 OBJCOPY =arm-none-eabi-objcopy
 OBJDUMP = arm-none-eabi-objdump
 arm-none-eabi-size $(PRJ NAME).elf
+#at the appropriate locations
 
 #Generating the bin file
 cp ~/sandbox/STM32F103C8T6/examples/blink.c ~/sandbox/STM32F103C8T6/src/main.c
+cd ~/sandbox/STM32F103C8T6/
 sudo make bin
 cp main.bin cd ~/sandbox/openocd
 
