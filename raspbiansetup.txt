@@ -76,7 +76,11 @@ https://github.com/gadepall/arduino/blob/master/avr-gcc/setup/gvv_avrgcc_setup.p
 #for executing the codes
 
 #Wiring Pi
+#Installation
 git clone https://github.com/WiringPi/WiringPi.git
 cd WiringPi && ./build
+#Check gpio pin configuration
+pinout
+
 
 
