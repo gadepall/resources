@@ -84,13 +84,17 @@ git clone https://github.com/WiringPi/WiringPi.git
 cd WiringPi && ./build
 cp blink.c ~
 cd ~
-#Check gpio pin configuration
+#RPi has 3 types of pin numbers
+#Normal numbering from 1-40
+#BCM pio pin configuration which can be obtained by typing
 pinout
+#on the terminal and
 #The wiring pi pin numbers can be obtained from 
 https://pinout.xyz/
-#Connect  GPIO pin 0  of the pi to an LED 
+#Connect  wiring pi GPIO pin 0 (normal pin 13)  of the pi to an LED 
+#This
 #and execute the following code
 gcc -Wall -o test blink.c -lwiringPi
 sudo ./test
-#The led should blink now
+#The led should blink now.  Note that wiring pi uses pin number 13, the default pin number for arduino.
 
