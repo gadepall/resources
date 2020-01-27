@@ -31,6 +31,7 @@ svn co https://github.com/gadepall/school/trunk/training
 #Testing python installation
 #Open geany and execute the following file for numpy
 training/math/codes/tri_sss.py
+#by pressing F5
 #and the following file for scipy
 training/chemistry/codes/chembal.py
 
@@ -43,7 +44,11 @@ F2, F4, F8 and F7
 training/presentation/example.tex
 #and press 
 F2, F4, F8 and F7
-
-
+#For latex figures, open 
+training/math/figs/tri_sss_alone.tex
+#and execute
+#For including figures in a latex document, open
+training/math/gvv_math_eg.tex
+#and execute
 
 
