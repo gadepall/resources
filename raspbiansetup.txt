@@ -52,7 +52,7 @@ training/math/gvv_math_eg.tex
 #and execute
 
 #Installing Arduino and AVR toolchain
-sudo apt install arduino
+sudo apt install arduino avra
 sudo usermod -a -G dialout $USER
 kill -9 -1
 #login again
@@ -60,4 +60,13 @@ kill -9 -1
 #Test Arduino IDE by following the instructions in 
 https://github.com/gadepall/arduino/blob/master/ide/setup/gvv_ard_ide_setup.pdf
 #to execue the blink program
+
+#AVR Assembly
+#Download the following codes
+wget https://raw.githubusercontent.com/gadepall/arduino/master/assembly/setup/m328Pdef/m328Pdef.inc
+wget https://raw.githubusercontent.com/gadepall/arduino/master/assembly/setup/codes/hello.asm
+#Configure geany and test AVR-Assembly by following the instructions in
+https://github.com/gadepall/arduino/blob/master/assembly/setup/gvv_ard_assembly_setup.pdf
+
+https://github.com/gadepall/arduino/blob/master/assembly/setup/gvv_ard_assembly_setup.pdf
 
