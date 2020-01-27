@@ -81,6 +81,10 @@ git clone https://github.com/WiringPi/WiringPi.git
 cd WiringPi && ./build
 #Check gpio pin configuration
 pinout
-
+#Follow the instructions in 
+https://github.com/gadepall/school/blob/master/programming/pi4s/gvv_p4s.pdf
+#for connecting the GPIO pins of the pi to an LED
+#and execute the following code
+wget https://github.com/gadepall/school/raw/master/programming/pi4s/code/seven_seg_disp.c
 
 
