@@ -27,4 +27,5 @@ sudo pip pip install -Iv cvxopt==1.1.8
 sudo apt install texlive-full texmaker
 #Test LaTeX and Python
 svn co https://github.com/gadepall/school/trunk/training
+python training/chemistry/codes/chembal.py
 
