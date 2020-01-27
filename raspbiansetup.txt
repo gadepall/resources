@@ -56,6 +56,8 @@ sudo apt install arduino
 sudo usermod -a -G dialout $USER
 kill -9 -1
 #login again
-#Test Arduino  by following the instructions in 
+
+#Test Arduino IDE by following the instructions in 
 https://github.com/gadepall/arduino/blob/master/ide/setup/gvv_ard_ide_setup.pdf
+#to execue the blink program
 
