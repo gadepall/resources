@@ -99,4 +99,72 @@ sudo ./test
 #The led should blink now.  Note that wiring pi uses pin number 13, the default pin number for arduino.
 
 #Arm Toolchain
+#Base packages
 sudo apt-get install git autoconf libtool make automake texinfo pkg-config libusb-1.0-0 libusb-1.0-0-dev gcc-arm-none-eabi libnewlib-arm-none-eabi telnet
+
+#Create working directory
+ cd ~
+ mkdir -p ~/sandbox
+ cd sandbox
+
+#Download Openocd
+git clone git://repo.or.cz/openocd.git
+
+#Download Example files
+git clone https://github.com/gadepall/STM32F103C8T6.git
+
+#Install openocd
+cd openocd
+./bootstrap
+./configure --enable-sysfsgpio --enable-bcm2835gpio
+make -j4
+sudo make install
+
+#SWDIO, SWCLK and RESET Pins for RPi-STM32 connection
+#On the RPi, type
+pinout
+#This will give the GPIO pin configuration on the RPi. Now open
+nano /usr/local/share/openocd/scripts/interface/sysfsgpio-raspberrypi.cfg
+#and verify that the file contains the lines (at
+#different locations)
+# Each of the SWD lines need a gpio number
+set: swclk swdio
+# Header pin numbers: 23 22
+sysfsgpio_swd_nums 11 25
+# Header pin numbers: TRST -26, SRST -18
+sysfsgpio_srst_num 24
+reset_config_srst_only srst_push_pull
+#End pin configuration for SWDIO, SWCLK and RESET Pins for RPi-STM32 connection
+
+#sysfsgpio configuration for communication
+cp ~/sandbox/STM32F103C8T6/refs/openocd.cfg ~/sandbox/openocd
+sudo openocd -f /usr/local/share/openocd/scripts/interface/sysfsgpio-raspberrypi.cfg -c "transport select swd" -c "adapter_khz 1000" -f /usr/local/share/openocd/scripts/target/stm32f1x.cfg
+telnet localhost 4444
+
+#Ensure that the make file configuration has the following
+CC=arm-none-eabi-gcc
+OBJCOPY =arm-none-eabi-objcopy
+OBJDUMP = arm-none-eabi-objdump
+arm-none-eabi-size $(PRJ NAME).elf
+
+#Generating the bin file
+cp ~/sandbox/STM32F103C8T6/examples/blink.c ~/sandbox/STM32F103C8T6/src/main.c
+sudo make bin
+cp main.bin cd ~/sandbox/openocd
+
+#Flashing the bin file
+#Go to the telnet terminal
+reset halt
+flash write image erase main.bin 0
+x08000000
+reset run
+
+
+
+
+
+
+
+
+
+
