@@ -98,3 +98,5 @@ gcc -Wall -o test blink.c -lwiringPi
 sudo ./test
 #The led should blink now.  Note that wiring pi uses pin number 13, the default pin number for arduino.
 
+#Arm Toolchain
+sudo apt-get install git autoconf libtool make automake texinfo pkg-config libusb-1.0-0 libusb-1.0-0-dev gcc-arm-none-eabi libnewlib-arm-none-eabi telnet
