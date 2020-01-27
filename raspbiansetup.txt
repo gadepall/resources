@@ -28,9 +28,22 @@ sudo apt install texlive-full texmaker
 #Download Test Directory for LaTeX and Python
 svn co https://github.com/gadepall/school/trunk/training
 
-#Test numpy
-python training/math/codes/tri_sss.py
+#Testing python installation
+#Open geany and execute the following file for numpy
+training/math/codes/tri_sss.py
+#and the following file for scipy
+training/chemistry/codes/chembal.py
 
-#Test sympy
-python training/chemistry/codes/chembal.py
+#Testing Latex Installation
+#For latex document, open 
+training/chemistry/gvv_eq_balance.tex
+#and press 
+F2, F4, F8 and F7
+#For latex slides, open 
+training/presentation/example.tex
+#and press 
+F2, F4, F8 and F7
+
+
+
 
