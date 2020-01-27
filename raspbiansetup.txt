@@ -6,7 +6,10 @@ https://www.raspberrypi.org/downloads/raspbian/
 sudo fdisk -l
 #If the location of your usb sdcard is /dev/sdX,
 sudo dd bs=4M if=xxxraspbianxxx.img of=/dev/sdX conv=fsync
-##Plug the sdcard into your rpi and power up.  Make sure that you are connected to the internet.  Open a terminal and type the #following commands
+##Plug the sdcard into your rpi and power up.  Make sure that you are connected to the internet.
+
+#Python configuration
+#Open a terminal and type the #following commands
 sudo apt update && sudo apt upgrade
 #Install subversion
 sudo apt install subversion
@@ -86,5 +89,6 @@ https://github.com/gadepall/school/blob/master/programming/pi4s/gvv_p4s.pdf
 #for connecting the GPIO pins of the pi to an LED
 #and execute the following code
 wget https://github.com/gadepall/school/raw/master/programming/pi4s/code/seven_seg_disp.c
-
+gcc -Wall -o test seven_seg_disp.c -lwiringPi
+sudo ./test
 
