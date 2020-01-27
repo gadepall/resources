@@ -24,7 +24,7 @@ sudo pip install cvxopt
 sudo pip pip install -Iv cvxopt==1.1.8
 
 #Install latex
-sudo apt install texlive-full texmaker
+sudo apt install texlive-full texmaker okular
 #Download Test Directory for LaTeX and Python
 svn co https://github.com/gadepall/school/trunk/training
 
