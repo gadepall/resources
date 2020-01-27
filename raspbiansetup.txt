@@ -68,3 +68,11 @@ wget https://raw.githubusercontent.com/gadepall/arduino/master/assembly/setup/co
 #Configure geany and test AVR-Assembly by following the instructions in
 https://github.com/gadepall/arduino/blob/master/assembly/setup/gvv_ard_assembly_setup.pdf
 
+#AVR-GCC
+#Download relevant codes from 
+svn checkout https://github.com/gadepall/arduino/trunk/avr-gcc/setup/codes
+#Follow instructions in 
+https://github.com/gadepall/arduino/blob/master/avr-gcc/setup/gvv_avrgcc_setup.pdf
+#for executing the codes
+
+
