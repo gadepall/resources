@@ -53,6 +53,7 @@ training/math/gvv_math_eg.tex
 
 #Installing Arduino and AVR toolchain
 sudo apt install arduino
+sudo usermod -a -G dialout $USER
 
 #Test Arduino  by following the instructions in 
 https://github.com/gadepall/arduino/blob/master/ide/setup/gvv_ard_ide_setup.pdf
