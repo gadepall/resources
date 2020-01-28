@@ -180,8 +180,11 @@ nano startocd.sh
 #!/bin/bash
 sudo openocd -f /usr/local/share/openocd/scripts/interface/sysfsgpio-raspberrypi.cfg -c "transport select swd" -c "adapter_khz 1000" -f /usr/local/share/openocd/scripts/target/stm32f1x.cfg
 telnet localhost 4444
-#save and exist
+#save and exit
+bash startocd.sh
 
+#Open the makefile
+nano ~/sandbox/STM32F103C8T6/Makefile
 #Ensure that the make file configuration has the following
 CC=arm-none-eabi-gcc
 OBJCOPY =arm-none-eabi-objcopy
@@ -192,7 +195,8 @@ arm-none-eabi-size $(PRJ NAME).elf
 #Generating the bin file
 cp ~/sandbox/STM32F103C8T6/examples/blink.c ~/sandbox/STM32F103C8T6/src/main.c
 cd ~/sandbox/STM32F103C8T6/
-sudo make bin
+make clean
+make bin
 cp main.bin cd ~/sandbox/openocd
 
 #Flashing the bin file
@@ -201,6 +205,7 @@ reset halt
 flash write_image erase main.bin 0x08000000
 reset run
 
+#A yellow LED on the stm32 board should start blinking
 
 
 
