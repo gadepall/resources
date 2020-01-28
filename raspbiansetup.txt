@@ -173,8 +173,14 @@ https://github.com/gadepall/arm-embedded/blob/master/setup/gvv_stm32_tinker_setu
 
 #sysfsgpio configuration for communication
 cp ~/sandbox/STM32F103C8T6/refs/openocd.cfg ~/sandbox/openocd
+
+nano startocd.sh
+#Copy the following lines
+
+#!/bin/bash
 sudo openocd -f /usr/local/share/openocd/scripts/interface/sysfsgpio-raspberrypi.cfg -c "transport select swd" -c "adapter_khz 1000" -f /usr/local/share/openocd/scripts/target/stm32f1x.cfg
 telnet localhost 4444
+#save and exist
 
 #Ensure that the make file configuration has the following
 CC=arm-none-eabi-gcc
@@ -192,11 +198,8 @@ cp main.bin cd ~/sandbox/openocd
 #Flashing the bin file
 #Go to the telnet terminal
 reset halt
-flash write image erase main.bin 0
-x08000000
+flash write_image erase main.bin 0x08000000
 reset run
-
-
 
 
 
