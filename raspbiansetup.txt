@@ -8,6 +8,32 @@ sudo fdisk -l
 sudo dd bs=4M if=xxxraspbianxxx.img of=/dev/sdX conv=fsync
 ##Plug the sdcard into your rpi and power up.  Make sure that you are connected to the internet.
 
+#Enabling ssh
+https://www.raspberrypi.org/documentation/remote-access/ssh/
+
+
+#Enabling VNC
+https://www.raspberrypi.org/documentation/remote-access/vnc/
+#Installing package
+sudo apt install tightvncserver
+#Configuring vnc
+#On terminal
+vncserver
+vncserver -kill :1
+nano .vnc/xstartup 
+#paste the following
+#!/bin/sh
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+exec startlxde
+#save and exit
+#This has to be done only once
+
+#Start the vncserver
+bash ~/vncstart.sh
+#This has to be done everytime 
+
+
 #Python configuration
 #Open a terminal and type the #following commands
 sudo apt update && sudo apt upgrade
