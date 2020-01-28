@@ -206,6 +206,35 @@ flash write_image erase main.bin 0x08000000
 reset run
 
 #A yellow LED on the stm32 board should start blinking
+#End of ARM-GCC installation
+
+#Icestorm toolchain for ICOBOARD
+#WiringPi is required, which is already installed earlier
+
+#Base  packages
+sudo apt install build-essential clang bison flex libreadline-dev gawk tcl-dev libffi-dev mercurial graphviz xdot pkgconfig libftdi-dev
+
+
+#Icoprog
+#On termuxarch run as root user
+#With termuxarch and pizero, this is the only tool required at the pi
+svn co http://svn.clifford.at/handicraft/2015/icoprog
+cd icoprog && make install
+
+#Icestorm
+#On termuxarch run as normal user without sudo
+git clone https://github.com/cliffordwolf/icestorm
+cd icestorm && make -j4 && sudo make install
+
+#arachne-pnr
+#On termuxarch run as normal user without sudo
+git clone https://github.com/cseed/arachne-pnr
+cd arachne-pnr && make -j4 && sudo make install
+
+#Yosys
+#On termuxarch run as normal user without sudo
+git clone https://github.com/cliffordwolf/yosys
+cd yosys && make -j4 && sudo make install
 
 
 
