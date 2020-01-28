@@ -29,9 +29,14 @@ exec startlxde
 #save and exit
 #This has to be done only once
 
+nano ~/vncstart.sh
+#!/bin/bash
+vncserver :1 -geometry 1200x700 -depth 16 -pixelformat rgb565
+#save and exit
+#This has to be done only once
 #Start the vncserver
 bash ~/vncstart.sh
-#This has to be done everytime 
+#This has to be done everytime the pi reboots 
 
 
 #Python configuration
