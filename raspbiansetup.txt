@@ -174,13 +174,16 @@ https://github.com/gadepall/arm-embedded/blob/master/setup/gvv_stm32_tinker_setu
 cp ~/sandbox/STM32F103C8T6/refs/openocd.cfg ~/sandbox/openocd
 
 nano startocd.sh
-#Copy the following lines
+#Copy the following line
 
 #!/bin/bash
 sudo openocd -f /usr/local/share/openocd/scripts/interface/sysfsgpio-raspberrypi.cfg -c "transport select swd" -c "adapter_khz 1000" -f /usr/local/share/openocd/scripts/target/stm32f1x.cfg
-telnet localhost 4444
 #save and exit
 bash startocd.sh
+
+#Open one more terminal and do the following
+telnet localhost 4444
+cd ~/sandbox/STM32F103C8T6/
 
 #Open the makefile
 nano ~/sandbox/STM32F103C8T6/Makefile
@@ -196,7 +199,6 @@ cp ~/sandbox/STM32F103C8T6/examples/blink.c ~/sandbox/STM32F103C8T6/src/main.c
 cd ~/sandbox/STM32F103C8T6/
 make clean
 make bin
-cp main.bin cd ~/sandbox/openocd
 
 #Flashing the bin file
 #Go to the telnet terminal
