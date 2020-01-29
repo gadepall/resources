@@ -1,4 +1,4 @@
-Installing Raspbian
+#Installing Raspbian
 #Download Raspbian Buster with desktop and recommended software from the following link
 https://www.raspberrypi.org/downloads/raspbian/
 #Go to the directory where the raspbianxx.zip image is downloaded and unzip. You should now have a raspbianxx.img file
@@ -158,8 +158,7 @@ pinout
 nano /usr/local/share/openocd/scripts/interface/sysfsgpio-raspberrypi.cfg
 #and verify that the file contains the lines (at
 #different locations)
-# Each of the SWD lines need a gpio number
-set: swclk swdio
+# Each of the SWD lines need a gpio number set: swclk swdio
 # Header pin numbers: 23 22
 sysfsgpio_swd_nums 11 25
 # Header pin numbers: TRST -26, SRST -18
@@ -212,7 +211,7 @@ reset run
 #WiringPi is required, which is already installed earlier
 
 #Base  packages
-sudo apt install build-essential clang bison flex libreadline-dev gawk tcl-dev libffi-dev mercurial graphviz xdot pkgconfig libftdi-dev
+sudo apt install build-essential clang bison flex libreadline-dev gawk tcl-dev libffi-dev mercurial graphviz xdot pkg-config libftdi-dev
 
 
 #Icoprog
@@ -236,8 +235,13 @@ cd arachne-pnr && make -j4 && sudo make install
 git clone https://github.com/cliffordwolf/yosys
 cd yosys && make -j4 && sudo make install
 
-
-
+#ICOBOARD Programming
+#Download codes from
+svn co https://github.com/gadepall/EE5811/trunk/icoboard_fpga/codes
+#and connect pins according to Table 2 in 
+https://github.com/gadepall/EE5811/blob/master/icoboard_fpga/gvv_hemanth_icoboard.pdf
+#Execute the code as
+make v_fname=blink
 
 
 
