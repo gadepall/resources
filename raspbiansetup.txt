@@ -113,8 +113,8 @@ https://github.com/gadepall/arduino/blob/master/avr-gcc/setup/gvv_avrgcc_setup.p
 #Installation
 git clone https://github.com/WiringPi/WiringPi.git
 cd WiringPi && ./build
-cp blink.c ~
-cd ~
+cp examples/blink.c ~/
+cd ~/
 #RPi has 3 types of pin numbers
 #Normal numbering from 1-40
 #BCM pio pin configuration which can be obtained by typing
