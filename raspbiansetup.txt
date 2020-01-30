@@ -1,4 +1,5 @@
-#Installing Raspbian
+#Begin Installing Raspbian
+
 #Download Raspbian Buster with desktop and recommended software from the following link
 https://www.raspberrypi.org/downloads/raspbian/
 #Go to the directory where the raspbianxx.zip image is downloaded and unzip. You should now have a raspbianxx.img file
@@ -14,6 +15,8 @@ https://www.raspberrypi.org/documentation/remote-access/ssh/
 
 #Enabling VNC
 https://www.raspberrypi.org/documentation/remote-access/vnc/
+
+
 #Installing package
 sudo apt install tightvncserver
 #Configuring vnc
@@ -37,8 +40,9 @@ vncserver :1 -geometry 1200x700 -depth 16 -pixelformat rgb565
 #Start the vncserver
 bash ~/vncstart.sh
 #This has to be done everytime the pi reboots 
+#End Installing Raspbian
 
-
+#Begin Python Installation
 #Python configuration
 #Open a terminal and type the #following commands
 sudo apt update && sudo apt upgrade
@@ -56,9 +60,13 @@ sudo pip install setuptools numpy scipy matplotlib mpmath sympy  cvxpy
 sudo pip install cvxopt
 #if cvxopt fails, then
 sudo pip install -Iv cvxopt==1.1.8
+#End Python Installation
 
-#Install latex
+#Begin  latex installation
 sudo apt install texlive-full texmaker okular
+#End latex installation
+
+#Begin Latex and Python Testing
 #Download Test Directory for LaTeX and Python
 svn co https://github.com/gadepall/school/trunk/training
 
@@ -84,7 +92,9 @@ training/math/figs/tri_sss_alone.tex
 #For including figures in a latex document, open
 training/math/gvv_math_eg.tex
 #and execute
+#End Latex and Python Testing
 
+#Begin AVR installation
 #Installing Arduino and AVR toolchain
 sudo apt install arduino avra
 sudo usermod -a -G dialout $USER
@@ -108,9 +118,9 @@ svn checkout https://github.com/gadepall/arduino/trunk/avr-gcc/setup/codes
 #Follow instructions in 
 https://github.com/gadepall/arduino/blob/master/avr-gcc/setup/gvv_avrgcc_setup.pdf
 #for executing the codes
+#End AVR installation
 
-#Wiring Pi
-#Installation
+#Begin Wiring Pi Installation
 git clone https://github.com/WiringPi/WiringPi.git
 cd WiringPi && ./build
 cp examples/blink.c ~/
@@ -128,7 +138,9 @@ https://pinout.xyz/
 gcc -Wall -o test blink.c -lwiringPi
 sudo ./test
 #The led should blink now.  Note that wiring pi uses pin number 13, the default pin number for arduino.
+#End Wiring Pi Installation
 
+#Begin ARM-GCC Installation
 #Arm Toolchain
 #Base packages
 sudo apt-get install git autoconf libtool make automake texinfo pkg-config libusb-1.0-0 libusb-1.0-0-dev gcc-arm-none-eabi libnewlib-arm-none-eabi telnet
@@ -207,8 +219,9 @@ flash write_image erase main.bin 0x08000000
 reset run
 
 #A yellow LED on the stm32 board should start blinking
-#End of ARM-GCC installation
+#End ARM-GCC Installation
 
+#BEGIN ICOBOARD Installation
 #Icestorm toolchain for ICOBOARD
 #WiringPi is required, which is already installed earlier
 
@@ -245,6 +258,12 @@ https://github.com/gadepall/EE5811/blob/master/icoboard_fpga/gvv_hemanth_icoboar
 #Execute the code as
 make v_fname=blink
 
+#End ICOBOARD Installation
+
+
+#Begin ESP32 Installation
+
+#End ESP32 Installation
 
 
 
