@@ -275,6 +275,9 @@ sudo ./install.sh
 #Follow instructions in 
 https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/boards_manager.md
 #so that the ESP32 board appears in the boards option in the Arduino IDE
+#Download the example file
+wget https://github.com/gadepall/EE1320/raw/master/esp32/setup/codes/hello/hello.ino
+#and execute.  The onboard led should blink
 
 #End ESP32 Installation
 
