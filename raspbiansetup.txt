@@ -132,12 +132,12 @@ pinout
 #on the terminal and
 #The wiring pi pin numbers can be obtained from 
 https://pinout.xyz/
-#Connect  wiring pi GPIO pin 0 (normal pin 13)  of the pi to an LED 
+#Connect  wiring pi GPIO pin 0 (normal pin 11)  of the pi to an LED 
 #This
 #and execute the following code
 gcc -Wall -o test blink.c -lwiringPi
 sudo ./test
-#The led should blink now.  Note that wiring pi uses pin number 13, the default pin number for arduino.
+#The led should blink now.  
 #End Wiring Pi Installation
 
 #Begin ARM-GCC Installation
@@ -262,6 +262,19 @@ make v_fname=blink
 
 
 #Begin ESP32 Installation
+
+#Install latest arduino
+#Download the 32-bit arm version from 
+https://www.arduino.cc/en/main/software
+cp ~/Downloads/arduino-x.x.x-tar.gz ~/
+tar xf arduino-x.x.x-tar.gz
+cd  arduino-x.x.x
+sudo ./install.sh
+#End installation of latest arduion
+#Espressif Board manager
+#Follow instructions in 
+https://github.com/espressif/arduino-esp32/blob/master/docs/arduino-ide/boards_manager.md
+#so that the ESP32 board appears in the boards option in the Arduino IDE
 
 #End ESP32 Installation
 
