@@ -290,4 +290,27 @@ https://circuitdigest.com/microcontroller-projects/using-classic-bluetooth-in-es
 #End ESP32 Installation
 
 
+#Begin RS485 installation
 
+#Install modbus on RPi
+sudo pip install minimalmodbus
+
+#Download the following and copy to the libraries folder in the sketchbook directory of Arduino.
+git clone https://github.com/smarmengol/Modbus-Master-Slave-for-Arduino
+
+# Make connections according to Table 2 and Fig. 2.1 in the document below
+
+https://github.com/gadepall/EE1320/blob/master/pi/rs485/gvv_odroid_rs485.pdf
+
+
+#Download the following code and run it from the arduino
+https://github.com/gadepall/EE1320/blob/master/pi/rs485/codes/ard_slave/src/main.cpp
+
+#Download the following python code and execute
+https://github.com/gadepall/EE1320/blob/master/pi/rs485/codes/one_slave.py
+#This configures the pi as master and arduino as slave
+
+#The following code is for using two Ardunio saves
+https://github.com/gadepall/EE1320/blob/master/pi/rs485/codes/two_slave.py
+
+#End  RS485 installation
