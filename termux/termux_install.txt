@@ -159,6 +159,7 @@ pacman -Sy avrdude avr-gcc avr-libc
 #End avr-gcc installation termuxarch
 
 #Install platformio on termuxarch
+pacman -S python
 pip install platformio
 #End platformio installation on termuxarch
 
