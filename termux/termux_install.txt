@@ -1,59 +1,168 @@
+#Access internal storage
+termux-setup-storage
+
+#Upgrade packages
 apt update && apt upgrade
 apt install build-essential
 
 #Mandatory packages
-apt install git silversearcher-ag wget openssh subversion imagemagick proot nano
+apt install git silversearcher-ag wget openssh subversion imagemagick proot nano python bsdtar
 
-#Access internal storage
-termux-setup-storage
 
 #Python installation
+pip install --upgrade pip
 #Add pointless repo
 wget https://its-pointless.github.io/setup-pointless-repo.sh
 bash setup-pointless-repo.sh
-apt install gcc-8 python  x11-repo 
-apt  install numpy scipy 
-#python
-pip install matplotlib mpmath
+
+#Install scipy, numpy is also installed with this
+apt install gcc-8 scipy 
+#other python packages
+pip install matplotlib mpmath sympy  
+pip install cvxopt cvxpy
+#if cvxopt fails, then
+pip install -Iv cvxopt==1.1.8
+#if cvxpy fails
+git clone https://github.com/cvxgrp/cvxpy.git
+cd cvxpy
+python setup.py install
+#End Python Installation
 
 #Latex
 apt install texlive-full ghostscript texinfo
+apt-mark hold ghostscript
+#as ghostscript sometimes breaks with updates
 wget https://raw.githubusercontent.com/gadepall/resources/master/termux/tex2pdf.sh
 chmod +x tex2pdf.sh
 cp tex2pdf.sh $PREFIX/bin/
 #Execute filename.tex as
 tex2pdf filename
 
-#The following two commands are optional, use only if you know what it means
-# Make gcc default
-setupgcc-8
-#If you want clang instead of gcc
-setupclang
+#Begin Latex and Python Testing
+#Download Test Directory for LaTeX and Python
+svn co https://github.com/gadepall/school/trunk/training
 
-#Latex alternative install, use only if you know what it means
-apt install texlive
-tlmgr update --list
-tlmgr install scheme-full
+#Testing python installation
+#Open geany and execute the following file for numpy
+python training/math/codes/tri_sss.py
+#and the following file for sympy
+python training/chemistry/codes/chembal.py
 
-#VNC
-pkg install tigervnc fluxbox openbox pypanel xorg-xsetroot
-nano ~/.vnc/xstartup
-#and copy the following
-# Generate menu.
-fluxbox-generate_menu
-# Start fluxbox.
-fluxbox &
-# Start Openbox.
-openbox-session &
-#save and exit
-nano ${PREFIX}/etc/xdg/openbox/autostart
-# Make background gray.
-xsetroot -solid gray
-# Launch PyPanel.
-pypanel &
-#save and exit
-nano ${PREFIX}/etc/bash.bashrc
-export DISPLAY=":1"
+#Testing Latex Installation
+#For latex document, open 
+tex2pdf.sh training/chemistry/gvv_eq_balance
+#For latex slides
+tex2pdf.sh training/presentation/example
+#For latex figures, open 
+tex2pdf.sh training/math/figs/tri_sss_alone
+#and execute
+#For including figures in a latex document, open
+tex2pdf.sh training/math/gvv_math_eg
+#and execute
+#End Latex and Python Testing
+
+#AVR Tools
+
+#Installing avra
+https://sourceforge.net/projects/avra/files/1.3.0/avra-1.3.0.tar.bz2/download
+or
+cd ~
+wget https://excellmedia.dl.sourceforge.net/project/avra/1.3.0/avra-1.3.0.tar.bz2
+cp avra-1.3.0.tar.bz2 ~/
+tar xf avra-1.3.0.tar.bz2
+cd avra-1.3.0
+cp README AUTHORS ./src
+cd src
+#Create empty files with names NEWS, ChangeLog
+nano NEWS
+nano ChangeLog
+#Create avra binary
+chmod +x bootstrap
+chmod +x configure
+mv configure.in configure.ac
+./bootstrap
+termux-fix-shebang configure
+./configure --prefix=$PREFIX
+make -j 4
+cp avra $PREFIX/bin
+cd ~
+wget https://github.com/gadepall/resources/raw/master/termux/avr/m328Pdef/m328Pdef.inc
+wget https://github.com/gadepall/resources/raw/master/termux/avr/asm_codes/hello.asm
+avra hello.asm
+#You should see hello.hex generated
+#Now any .asm file can be executed using 
+avra filename.asm
+#End installing avra
+
+
+#Install avrdude
+
+#Install readline 
+apt install readline
+#In case above doesn't work, install from source using the following
+#wget http://ftp.vim.org/ftp/gnu/readline/readline-8.0-beta.tar.gz
+
+#Install libusb-1
+wget https://github.com/libusb/libusb/releases/download/v1.0.21/libusb-1.0.21.tar.bz2
+tar xf libusb-1.0.21.tar.bz2
+cd libusb-1.0.21
+termux-fix-shebang configure
+./configure --prefix=$PREFIX --disable-udev
+make -j 4
+make install  
+
+#Install avrdude
+cd ..
+wget http://download.savannah.gnu.org/releases/avrdude/avrdude-6.3.tar.gz
+tar -xf avrdude-6.3.tar.gz
+cd avrdude-6.3
+rm config.guess config.sub
+wget -O config.guess 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD'
+wget -O config.sub 'http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD'
+chmod +x configure
+termux-fix-shebang configure
+./configure --prefix=$PREFIX
+make -j 4
+make install 
+
+#logon to the pi
+sudo apt install ser2net
+
+#Open a terminal
+ssh -tt -n -L 8086:localhost:8086 pi@10.0.0.8 '/usr/sbin/ser2net -d -C "8086:raw:600:/dev/ttyACM0:115200 NONE 1STOPBIT 8DATABITS -XONXOFF LOCAL -RTSCTS HANGUP_WHEN_DONE "' 
+
+#Open another terminal
+avra hello.asm
+avrdude -p atmega328p -c arduino -P net:localhost:8086 -U flash:w:hello.hex
+#If there is any issue, use above ssh as root user
+
+
+#Installing archlinux on termux, aka termuxarch
+pkg update
+wget https://raw.githubusercontent.com/sdrausty/TermuxArch/master/setupTermuxArch.sh
+bash setupTermuxArch.sh
+
+#Starting archlinux on termux
+cd ~
+bash arch/startarch
+#Exit 
+#Create user on termuxarch
+bash arch/startarch c addauser user
+#Exit
+#Login as user
+bash arch/startarch ul user
+#End archlinux install
+
+#Install avr-gcc on termuxarch
+bash arch/startarch
+pacman -Sy avrdude avr-gcc avr-libc 
+#End avr-gcc installation termuxarch
+
+#Install platformio on termuxarch
+pip install platformio
+#End platformio installation on termuxarch
+
+
 
 #Batch convert files
 mogrify -format eps *.jpg
@@ -76,3 +185,39 @@ make install
 ssconvert --export-type=Gnumeric_html:latex projects.xlsx projects.tex
 http://hplgit.github.io/web4sciapps/doc/pub/._web4sa_flask004.html
 ssconvert --export-type=Gnumeric_html:html40 filename.xls filename.html
+
+
+
+#Latex alternative install, use only if you know what it means
+apt install texlive
+tlmgr update --list
+tlmgr install scheme-full
+
+#The following two commands are optional, use only if you know what it means
+# Make gcc default
+setupgcc-8
+#If you want clang instead of gcc
+setupclang
+
+
+#VNC
+apt install x11-repo tigervnc fluxbox openbox pypanel xorg-xsetroot
+nano ~/.vnc/xstartup
+#and copy the following
+# Generate menu.
+fluxbox-generate_menu
+# Start fluxbox.
+fluxbox &
+# Start Openbox.
+openbox-session &
+#save and exit
+nano ${PREFIX}/etc/xdg/openbox/autostart
+# Make background gray.
+xsetroot -solid gray
+# Launch PyPanel.
+pypanel &
+#save and exit
+nano ${PREFIX}/etc/bash.bashrc
+export DISPLAY=":1"
+
+
