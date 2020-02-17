@@ -137,6 +137,8 @@ avrdude -p atmega328p -c arduino -P net:localhost:8086 -U flash:w:hello.hex
 #If there is any issue, use above ssh as root user
 
 
+
+
 #Installing archlinux on termux, aka termuxarch
 apt update
 wget https://raw.githubusercontent.com/sdrausty/TermuxArch/master/setupTermuxArch.sh
@@ -229,12 +231,30 @@ pacman -Sy avrdude avr-gcc avr-libc
 
 
 #Install python on termuxarch
-pacman -S python-pip python-numpy python-scipy python-matplotlib python-sympy python-mpmath python-cvxopt
+#As termuxarch user
+sudo pacman -S python-pip
+sudo pip install  numpy scipy matplotlib sympy mpmath cvxopt cvxpy
 #Install python on termuxarch
-pip install scs
-yay install python-cvxpy
 #End Install python on termuxarch.  Currently, cvxpy is not building
 
+
+#ARM-GCC
+#Download precompiled arm binaries for aarch64 from
+https://drive.google.com/a/iith.ac.in/file/d/1Kts3x8iS4kwGuLE8K_tNZv8bCWIQaQNs/view?usp=drivesdk
+cp gcc-arm-none-eabi-8-2019-q3-update-linux.tar.bz2 ~/
+cd ~
+tar xf gcc-arm-none-eabi-8-2019-q3-update-linux.tar.bz2
+#Download example directory for building arm binaries
+git clone https://github.com/gadepall/STM32F103C8T6.git
+startarch l user
+cd STM32F103C8T6
+make clean
+make bin
+#This should generate the bin file for the blink
+#transfer the bin file to the rpi and 
+#Follow the instructions in
+https://github.com/gadepall/arm-embedded/blob/master/setup/gvv_stm32_tinker_setup.pdf
+#to flash the bin file to the stm32 from the rpi using the telnet terminal
 
 
 
