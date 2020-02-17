@@ -184,44 +184,60 @@ fakeroot
 
 
 #Installing nosudo on termuxarch
-#ogin as user
+#login as root
+pacman -Rdd sudo
+wget https://github.com/gadepall/resources/blob/master/termux/termuxarch/nosudo-0.9-1-any.pkg.tar.xz
+pacman -U nosudo-0.9-1-any.pkg.tar.xz
+#This will give superuser permissions to user, default password is root
+#To build nosudo from source
+#login as user
 git clone https://aur.archlinux.org/nosudo.git
 cd nosudo
 makepkg -si
 #This will create nosudo package but prompt for password.  break out and type
 cp nosudo-0.9-1-any.pkg.tar.xz /data/data/com.termux/files/home/
 #login as root
-pacman -Rdd sudo
 pacman -U  nosudo-0.9-1-any.pkg.tar.xz
 #End installing nosudo on termuxarch
 
 
 #install yay on termuxarch
+#login as root
+wget https://github.com/gadepall/resources/blob/master/termux/termuxarch/yay-git-9.4.4.r0.g3a5a6a7-1-aarch64.pkg.tar.xz
+pacman -U yay-git-9.4.4.r0.g3a5a6a7-1-aarch64.pkg.tar.xz
+
+#To build yay from source
 #login into user
 git clone https://aur.archlinux.org/yay-git.git
 cd yay-git
 makepkg -si
 #This will build a pkg.tar.xz file and will ask for root permission.  If root doesn't work,
 cp yay-git***.pkg.tar.gz /data/data/com.termux/files/home/
-
 #Login as root
 pacman -U yay-git***.pkg.tar.gz
 #end install yay
+
+#Install AVR tools
+#Installing avra
+yay --editmenu -S avra
+#wait for various prompts, edit the PKGBUILD using nano and add 'aarch64' in the build architecture
+
+#Install avr-gcc on termuxarch
+bash arch/startarch
+pacman -Sy avrdude avr-gcc avr-libc 
+#End avr-gcc installation termuxarch
+
 
 #Install python on termuxarch
 pacman -S python-pip python-numpy python-scipy python-matplotlib python-sympy python-mpmath python-cvxopt
 #Install python on termuxarch
 pip install scs
 yay install python-cvxpy
-#End Install python on termuxarch
+#End Install python on termuxarch.  Currently, cvxpy is not building
 
 
 
 
-#Install avr-gcc on termuxarch
-bash arch/startarch
-pacman -Sy avrdude avr-gcc avr-libc 
-#End avr-gcc installation termuxarch
 
 #Install platformio on termuxarch
 pacman -S python python-pip
