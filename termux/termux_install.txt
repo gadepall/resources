@@ -146,7 +146,7 @@ locale-gen
 #Starting archlinux on termux
 cd ~
 bash arch/startarch
-pacman -Sy base-devel git svn wget go
+pacman -Sy base-devel git svn wget go cmake
 #Exit 
 #Create user on termuxarch
 bash arch/startarch c addauser user
