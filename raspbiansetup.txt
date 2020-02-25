@@ -283,6 +283,7 @@ wget https://github.com/gadepall/EE1320/raw/master/esp32/setup/codes/hello/hello
 #LED control  using Wifi and ESP32
 https://randomnerdtutorials.com/esp32-web-server-arduino-ide/
 https://github.com/espressif/arduino-esp32/blob/master/libraries/WiFi/examples/SimpleWiFiServer/SimpleWiFiServer.ino
+https://github.com/pavan1827/ESP-32/blob/master/esp32.ino
 
 #LED control using Bluetooth and ESP32
 https://circuitdigest.com/microcontroller-projects/using-classic-bluetooth-in-esp32-and-toogle-an-led
