@@ -291,6 +291,10 @@ https://circuitdigest.com/microcontroller-projects/using-classic-bluetooth-in-es
 #End ESP32 Installation
 
 
+#Begin I2C installation
+https://github.com/gadepall/EE1320/blob/master/pi/i2c/gvv_pi_i2c.pdf
+#End I2C installation
+
 #Begin RS485 installation
 
 #Install modbus on RPi
