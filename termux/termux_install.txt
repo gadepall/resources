@@ -147,27 +147,48 @@ locale-gen
 
 #Starting archlinux on termux
 cd ~
-bash arch/startarch
+startarch
+or
+bash arch/startarch 
+
 pacman -Sy base-devel git svn wget go cmake
 #Exit 
 #Create user on termuxarch
-bash arch/startarch c addauser user
+startarch c addauser user
 #Exit
 #Login as user
 bash arch/startarch ul user
 #End archlinux install
 
+
+
+
+#Installing nosudo on termuxarch
+#login as root
+pacman -Rdd sudo
+wget https://github.com/gadepall/resources/blob/master/termux/termuxarch/nosudo-0.9-1-any.pkg.tar.xz
+pacman -U nosudo-0.9-1-any.pkg.tar.xz
+#This will give superuser permissions to user, default password is root
+
+
+#install yay on termuxarch
+#login as root
+wget https://github.com/gadepall/resources/blob/master/termux/termuxarch/yay-git-9.4.4.r0.g3a5a6a7-1-aarch64.pkg.tar.xz
+pacman -U yay-git-9.4.4.r0.g3a5a6a7-1-aarch64.pkg.tar.xz
+
 #Install fakeroot on termuxarch.  This allows installation using makepkg 
 #logged in as user
+startarch l user
 #https://www.reddit.com/r/archlinux/comments/dv9k8t/cannot_build_with_fakeroot_looking_for/
 wget http://ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_1.24.orig.tar.gz
 tar xf fakeroot_1.24.orig.tar.gz
-cd fakeroot_1.24
+cd fakeroot_1.24/
 ./bootstrap
 ./configure --prefix=/opt/fakeroot  --libdir=/opt/fakeroot/libs  --disable-static  --with-ipc=tcp
 
 make -j4
 
+#login as root and execute without sudo
 sudo make install
 
 /opt/fakeroot/bin/fakeroot
@@ -185,57 +206,41 @@ fakeroot
 #End fakeroot install on termuxarch
 
 
-#Installing nosudo on termuxarch
-#login as root
-pacman -Rdd sudo
-wget https://github.com/gadepall/resources/blob/master/termux/termuxarch/nosudo-0.9-1-any.pkg.tar.xz
-pacman -U nosudo-0.9-1-any.pkg.tar.xz
-#This will give superuser permissions to user, default password is root
-#To build nosudo from source
-#login as user
-git clone https://aur.archlinux.org/nosudo.git
-cd nosudo
-makepkg -si
-#This will create nosudo package but prompt for password.  break out and type
-cp nosudo-0.9-1-any.pkg.tar.xz /data/data/com.termux/files/home/
-#login as root
-pacman -U  nosudo-0.9-1-any.pkg.tar.xz
-#End installing nosudo on termuxarch
-
-
-#install yay on termuxarch
-#login as root
-wget https://github.com/gadepall/resources/blob/master/termux/termuxarch/yay-git-9.4.4.r0.g3a5a6a7-1-aarch64.pkg.tar.xz
-pacman -U yay-git-9.4.4.r0.g3a5a6a7-1-aarch64.pkg.tar.xz
-
-#To build yay from source
-#login into user
-git clone https://aur.archlinux.org/yay-git.git
-cd yay-git
-makepkg -si
-#This will build a pkg.tar.xz file and will ask for root permission.  If root doesn't work,
-cp yay-git***.pkg.tar.gz /data/data/com.termux/files/home/
-#Login as root
-pacman -U yay-git***.pkg.tar.gz
-#end install yay
 
 #Install AVR tools
 #Installing avra
 yay --editmenu -S avra
-#wait for various prompts, edit the PKGBUILD using nano and add 'aarch64' in the build architecture
+#wait for various prompts, choose avra-git, edit the PKGBUILD using nano and add 'aarch64' in the build architecture
 
 #Install avr-gcc on termuxarch
-bash arch/startarch
+startarch
 pacman -Sy avrdude avr-gcc avr-libc 
 #End avr-gcc installation termuxarch
+
+
+#Arduino IDE
+#Install platformio on termuxarch
+pacman -S python python-pip
+pip install platformio
+#Follow instructions on platformio website for installing avr toolchain
+
+#cd to the src directory
+#modify main.cpp for the code
+#go outside the source director
+pio run -e uno
+cd /data/data/com.termux/files/home/storage/shared/tlc/resources/termux/avr/pio_codes/.pioenvs/uno
+#where pio_codes is the main directory
+#Flash the firmware.hex file using avrdude
+
+#End platformio installation on termuxarch
 
 
 #Install python on termuxarch
 #As termuxarch user
 sudo pacman -S python-pip
-sudo pip install  numpy scipy matplotlib sympy mpmath cvxopt cvxpy
-#Install python on termuxarch
-#End Install python on termuxarch.  Currently, cvxpy is not building
+sudo pacman -S  python-numpy python-scipy python-matplotlib python-sympy python-mpmath python-cvxopt
+yay -S --edimenu python-cvxpy
+#End Install python on termuxarch.  
 
 
 #ARM-GCC
@@ -311,22 +316,43 @@ cd yosys && make -j4 && sudo make install
 
 
 
-#Install platformio on termuxarch
-pacman -S python python-pip
-pip install platformio
-#Follow instructions on platformio website for installing avr toolchain
-
-#cd to the src directory
-#modify main.cpp for the code
-#go outside the source director
-pio run -e uno
-cd /data/data/com.termux/files/home/storage/shared/tlc/resources/termux/avr/pio_codes/.pioenvs/uno
-#where pio_codes is the main directory
-#Flash the firmware.hex file using avrdude
-
-#End platformio installation on termuxarch
 
 
+
+#ARM toolchain on termuxarch
+yay -S --editmenu arm-none-eabi-gcc
+
+#Icoboard toolchain on termuxarch
+yay -S --editmenu icestorm-git
+#edit the pkgbuild to include ('x86_64' 'aarch64') as the build architecture.  
+#currently this is not working, most likely due to an issue with gcc or poor ram management
+
+#To build nosudo from source
+
+
+
+#login as user
+git clone https://aur.archlinux.org/nosudo.git
+cd nosudo
+makepkg -si
+#This will create nosudo package but prompt for password.  break out and type
+cp nosudo-0.9-1-any.pkg.tar.xz /data/data/com.termux/files/home/
+#login as root
+pacman -U  nosudo-0.9-1-any.pkg.tar.xz
+#End installing nosudo on termuxarch
+
+
+
+#To build yay from source
+#login into user
+git clone https://aur.archlinux.org/yay-git.git
+cd yay-git
+makepkg -si
+#This will build a pkg.tar.xz file and will ask for root permission.  If root doesn't work,
+cp yay-git***.pkg.tar.gz /data/data/com.termux/files/home/
+#Login as root
+pacman -U yay-git***.pkg.tar.gz
+#end install yay
 
 
 
