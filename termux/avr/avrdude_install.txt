@@ -28,7 +28,7 @@ make install
 sudo apt install ser2net
 
 #Open a terminal
-ssh -tt -n -L 8086:localhost:8086 pi@10.0.0.8 '/usr/sbin/ser2net -d -C "8086:raw:600:/dev/ttyACM0:115200 NONE 1STOPBIT 8DATABITS -XONXOFF LOCAL -RTSCTS HANGUP_WHEN_DONE "' 
+ssh -tt -n -L 8086:localhost:8086 pi@192.168.43.209 '/usr/sbin/ser2net -d -C "8086:raw:600:/dev/ttyUSB0:115200 NONE 1STOPBIT 8DATABITS -XONXOFF LOCAL -RTSCTS HANGUP_WHEN_DONE "' 
 
 #Open another terminal
 avra hello.asm
