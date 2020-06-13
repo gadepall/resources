@@ -167,14 +167,16 @@ bash arch/startarch ul user
 #Installing nosudo on termuxarch
 #login as root
 pacman -Rdd sudo
-wget https://github.com/gadepall/resources/blob/master/termux/termuxarch/nosudo-0.9-1-any.pkg.tar.xz
+#Download
+https://github.com/gadepall/resources/blob/master/termux/termuxarch/nosudo-0.9-1-any.pkg.tar.xz
 pacman -U nosudo-0.9-1-any.pkg.tar.xz
+
 #This will give superuser permissions to user, default password is root
 
 
 #install yay on termuxarch
-#login as root
-wget https://github.com/gadepall/resources/blob/master/termux/termuxarch/yay-git-9.4.4.r0.g3a5a6a7-1-aarch64.pkg.tar.xz
+#login as root and download
+https://github.com/gadepall/resources/blob/master/termux/termuxarch/yay-git-9.4.4.r0.g3a5a6a7-1-aarch64.pkg.tar.xz
 pacman -U yay-git-9.4.4.r0.g3a5a6a7-1-aarch64.pkg.tar.xz
 
 #Install fakeroot on termuxarch.  This allows installation using makepkg 
