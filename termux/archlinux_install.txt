@@ -36,6 +36,8 @@ startarch r[aw]: Construct the startarch proot statement from exec.../bin/.  For
 
 startarch s[u] user cmd: Login as user and execute command.  Use startarch c addauser user first to create this user and user's home directory.
 
+#locale generate
+locale-gen
 #Install key
 pacman-key --init
 pacman-key --populate archlinuxarm
@@ -44,8 +46,8 @@ pacman-key --populate archlinuxarm
 pacman -Syu
 
 #Essential packages
-pacman -Sy tigervnc lxde wget git geany python-pip ttf-dejavu  chromium \
-geany gnumeric clang bison flex svn make
+pacman -Sy go base-devel tigervnc lxde wget git geany python-pip ttf-dejavu  chromium \
+geany gnumeric clang bison flex svn make cmake
 
 #AVR
 pacman -Sy avrdude avr-gcc avr-libc 

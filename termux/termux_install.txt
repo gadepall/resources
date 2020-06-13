@@ -16,7 +16,7 @@ wget https://its-pointless.github.io/setup-pointless-repo.sh
 bash setup-pointless-repo.sh
 
 #Install scipy, numpy is also installed with this
-apt install gcc-8 scipy 
+apt install gcc-8 scipy numpy
 #other python packages
 pip install matplotlib mpmath sympy  
 pip install cvxopt cvxpy
@@ -26,6 +26,8 @@ pip install -Iv cvxopt==1.1.8
 git clone https://github.com/cvxgrp/cvxpy.git
 cd cvxpy
 python setup.py install
+#or
+pip install -Iv cvxpy==1.1.0
 #End Python Installation
 
 #Latex
@@ -34,7 +36,7 @@ apt-mark hold ghostscript
 #as ghostscript sometimes breaks with updates
 wget https://raw.githubusercontent.com/gadepall/resources/master/termux/tex2pdf.sh
 chmod +x tex2pdf.sh
-cp tex2pdf.sh $PREFIX/bin/
+mv tex2pdf.sh $PREFIX/bin/
 #Execute filename.tex as
 tex2pdf filename
 
@@ -43,7 +45,6 @@ tex2pdf filename
 svn co https://github.com/gadepall/school/trunk/training
 
 #Testing python installation
-#Open geany and execute the following file for numpy
 python training/math/codes/tri_sss.py
 #and the following file for sympy
 python training/chemistry/codes/chembal.py
@@ -205,6 +206,11 @@ ln -s /opt/fakeroot/bin/fakeroot
 fakeroot
 #End fakeroot install on termuxarch
 
+#Ignore packages
+nano /etc/pacman.conf
+#search for the line
+Ignorepkg = sudo fakeroot
+#Save and exit
 
 
 #Install AVR tools
