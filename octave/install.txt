@@ -1,0 +1,5 @@
+#Installing in archlinux
+pacman -Sy octave gcc-fortran
+pkg install -forge control
+pkg install -forge signal
+pkg install -forge communications

@@ -210,8 +210,9 @@ fakeroot
 
 #Ignore packages
 nano /etc/pacman.conf
-#search for the line
+#search for the line and change to
 Ignorepkg = sudo fakeroot
+#This will ensure that nosudo and the new fakeroot are not overwritten
 #Save and exit
 
 
