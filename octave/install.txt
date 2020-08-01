@@ -5,6 +5,7 @@ pkg install -forge signal
 pkg install -forge communications
 
 #Using Nano with Octave
-#Copy the text in 
-https://wiki.octave.org/Nano
+wget https://raw.githubusercontent.com/gadepall/resources/master/octave/.nanorc
+cp .nanorc ~/
+kill -9 -1
 
