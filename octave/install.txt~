@@ -8,3 +8,4 @@ pkg install -forge communications
 wget https://raw.githubusercontent.com/gadepall/resources/master/octave/.nanorc
 cp .nanorc ~/
 kill -9 -1
+
