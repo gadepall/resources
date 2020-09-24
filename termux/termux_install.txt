@@ -255,7 +255,7 @@ cd /data/data/com.termux/files/home/storage/shared/tlc/resources/termux/avr/pio_
 #As termuxarch user
 sudo pacman -S python-pip
 sudo pacman -S  python-numpy python-scipy python-matplotlib python-sympy python-mpmath python-cvxopt
-yay -S --edimenu python-cvxpy
+yay -S --editmenu python-cvxpy
 #End Install python on termuxarch.  
 
 
@@ -427,5 +427,16 @@ pypanel &
 #save and exit
 nano ${PREFIX}/etc/bash.bashrc
 export DISPLAY=":1"
+
+#Configure mutt
+apt install mutt
+http://nickdesaulniers.github.io/blog/2016/06/18/mutt-gmail-ubuntu/
+
+#Add addressbook in mutt using goobook
+
+https://hynek.me/articles/my-mutt-gmail-setup/
+https://gitlab.com/goobook/goobook/-/issues/83
+
+
 
 

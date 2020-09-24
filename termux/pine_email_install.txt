@@ -1,0 +1,20 @@
+#Install alpine
+apt update
+apt install alpine
+
+#Open pine by typing 
+alpine
+
+#Instructions from 
+https://askubuntu.com/questions/130899/how-can-i-configure-alpine-to-read-my-gmail-in-ubuntu
+
+ From that main screen (M) go to setup (S) > add a new collection (L), as in the screenshot below. Add the name of the collection (Gmail) and imap.gmail.com:993/ssl/user=me@gmail.com/xoauth2 in the server box (adding your proper gmail address of course).
+
+#Configuration
+
+Then go back to the main menu and go to setup > config (C) and place all your details in the appropriate boxes, as in the screenshot below, with this time adding also the smtp server (smtp.gmail.com:587/tls/user=me@gmail.com/xoauth2) and specifying your inbox path and personal name:
+
+#Authorizing Alpine Access to Gmail Email Services
+
+http://alpine.x10host.com/alpine/alpine-info/misc/xoauth2.html#SettingUpGmail
+

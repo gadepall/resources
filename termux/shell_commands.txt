@@ -1,0 +1,6 @@
+#Recursively delete files of type .eps from subdirectories
+find . -type f -name  *.eps -delete
+
+#Batch convert files usng imagemagick
+mogrify -format pdf *.png
+
